@@ -8,7 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        textPrimary: "var(--color-primary)",
+        buttonPrimary: "#1B76FF",
+        buttonSecondary: "#FFBB02",
+      },
+      width: {
+        maxDesktop: "1440px",
+      },
       backgroundImage: {
+        "hero-phone": "url('/static/phone/iPhone-15-Pro.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
