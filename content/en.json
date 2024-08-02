@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "navigation": {
+      "label": "kraftjar",
+      "benefits": "Benefits",
+      "about": "About",
+      "faq": "FAQ"
+    },
+    "title": "kraftjar - as for yourself",
+    "description": "We will change your approach to finding specialists and tasks in all areas. Download kraftjar today and find answers to all your needs",
+    "buttons": {
+      "apple": "Already at Apple Store",
+      "android": "Already at Google Play"
+    }
+  }
+}

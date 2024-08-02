@@ -2,29 +2,33 @@
 
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { LanguageSwitcher } from "./language-switcher";
+import { useTranslations } from "next-intl";
 
 export const Header = () => {
+  const t = useTranslations("Home.navigation");
+
   const goToHome = () => {
     console.log("Home page");
     redirect("/");
   };
 
   return (
-    <div className="flex h-8 w-[1280px] items-center justify-between pt-14">
+    <div className="mt-14 flex max-h-max w-[1280px] items-center justify-between">
       <div
         className="flex cursor-pointer items-center gap-2"
         onClick={goToHome}
       >
         <Image src="/static/logos/logo.svg" alt="logo" width={26} height={32} />
 
-        <span className="text-textPrimary font-bold">Крафтяр</span>
+        <span className="font-bold text-textPrimary">{t("label")}</span>
       </div>
 
-      <div className="text-textPrimary flex gap-12 text-sm">
-        <div>Головна</div>
-        <div>Переваги</div>
-        <div>Про додаток</div>
-        <div>Питання</div>
+      <div className="flex items-center gap-12 text-sm text-textPrimary">
+        <div>{t("benefits")}</div>
+        <div>{t("about")}</div>
+        <div>{t("faq")}</div>
+        <LanguageSwitcher />
       </div>
     </div>
   );
