@@ -81,8 +81,8 @@ jobs:
           key: "${{ secrets.STAGE_SSH_KEY }}"
           port: ${{ secrets.STAGE_PORT }}
           # proxy_port: 2222
-          source: docker-compose.stage.yml
-          target: ~/kraftjar-website
+          source: docker-compose.stage.yaml
+          target: ~/kraftjar-w/kraftjar-website
       - name: Deploy to stage
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -91,8 +91,8 @@ jobs:
           key: ${{ secrets.STAGE_SSH_KEY }}
           port: ${{ secrets.STAGE_PORT }}
           script: |
-            cd ~/kraftjar-website &&
-            mv docker-compose.stage.yml docker-compose.yml &&
+            cd ~/kraftjar-w/kraftjar-website &&
+            mv docker-compose.stage.yaml docker-compose.ymal &&
             docker compose pull &&
             docker compose up -d
   # notify:
