@@ -12,7 +12,7 @@ on:
 env:
   DOCKER_LOGIN: simple2b
   DOCKER_ACCESS_TOKEN: ${{ secrets.DOCKER_ACCESS_TOKEN }}
-  IMAGE_NAME: simple2b/kraftjar-website
+  IMAGE_NAME: simple2b/kraftjar-website:latest
 
 jobs:
   test:
