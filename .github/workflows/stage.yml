@@ -78,8 +78,8 @@ jobs:
         with:
           host: ${{ secrets.STAGE_HOST }}
           username: ${{ secrets.STAGE_USERNAME }}
-          key: ${{ secrets.STAGE_SSH_KEY }}
-          # port: ${{ secrets.STAGE_PORT }}
+          key: "gfdgfd"
+          port: ${{ secrets.STAGE_PORT }}
           # proxy_port: 2222
           source: docker-compose.stage.yml
           target: ~/kraftjar-w/kraftjar-website
