@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "bump-patch": "npm version patch",
+    "bump-minor": "npm version minor",
+    "bump-major": "npm version major",
+    "postversion": "git push --follow-tags"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.1",
