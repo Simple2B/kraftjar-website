@@ -6,8 +6,8 @@ services:
     # env_file:
     #   - .env
     restart: always
-    # labels:
-    #   - 'traefik.enable=true'
-    #   - 'traefik.http.routers.kraftjar-website.rule=Host(`stage.website.kraftjar.net`)'
-    #   - 'traefik.http.routers.kraftjar-website.tls=true'
-    #   - 'traefik.http.routers.kraftjar-website.tls.certresolver=myresolver'
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.kraftjar-website.rule=Host(`stage.website.kraftjar.net`)'
+      - 'traefik.http.routers.kraftjar-website.tls=true'
+      - 'traefik.http.routers.kraftjar-website.tls.certresolver=myresolver'
