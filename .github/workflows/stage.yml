@@ -80,11 +80,9 @@ jobs:
           username: ${{ secrets.STAGE_USERNAME }}
           key: ${{ secrets.STAGE_SSH_KEY }}
           port: ${{ secrets.STAGE_PORT }}
-          proxy_port: ${{ secrets.STAGE_PORT }}
+          proxy_port: 2222
           source: docker-compose.stage.yml
           target: ~/kraftjar-w/kraftjar-website
-        env:
-          DEBUG: true
       - name: Deploy to stage
         uses: appleboy/ssh-action@v0.1.10
         with:
