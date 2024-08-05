@@ -1,9 +1,5 @@
 services:
   app:
-    image: simple2b/kraftjar-website:latest
     build: .
     ports:
-      - 127.0.0.1:${WEB_PORT:-33006}:3000
-    # env_file:
-    #   - .env
-    # restart: always
+      - 127.0.0.1:3000:3000
