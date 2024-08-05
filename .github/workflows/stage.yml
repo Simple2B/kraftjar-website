@@ -80,6 +80,7 @@ jobs:
           username: ${{ secrets.STAGE_USERNAME }}
           key: ${{ secrets.STAGE_SSH_KEY }}
           port: ${{ secrets.STAGE_PORT }}
+          proxy_port: ${{ secrets.STAGE_PORT }}
           source: docker-compose.stage.yml
           target: ~/kraftjar-w/kraftjar-website
       - name: Deploy to stage
