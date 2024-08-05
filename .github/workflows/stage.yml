@@ -78,7 +78,7 @@ jobs:
         with:
           host: ${{ secrets.STAGE_HOST }}
           username: ${{ secrets.STAGE_USERNAME }}
-          key: "gfdgfd"
+          key: "${{ secrets.STAGE_SSH_KEY }}"
           port: ${{ secrets.STAGE_PORT }}
           # proxy_port: 2222
           source: docker-compose.stage.yml
