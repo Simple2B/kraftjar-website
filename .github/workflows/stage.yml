@@ -71,8 +71,8 @@ jobs:
     runs-on: s2b-2
     # needs: build
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: update compose file
         uses: appleboy/scp-action@v0.1.4
         with:
