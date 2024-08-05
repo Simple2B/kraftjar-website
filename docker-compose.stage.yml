@@ -1,0 +1,13 @@
+services:
+  app:
+    image: simple2b/kraftjar-website:latest
+    ports:
+      - 127.0.0.1:${WEB_PORT:-3000}:3000
+    # env_file:
+    #   - .env
+    restart: always
+    # labels:
+    #   - 'traefik.enable=true'
+    #   - 'traefik.http.routers.kraftjar-website.rule=Host(`stage.website.kraftjar.net`)'
+    #   - 'traefik.http.routers.kraftjar-website.tls=true'
+    #   - 'traefik.http.routers.kraftjar-website.tls.certresolver=myresolver'
