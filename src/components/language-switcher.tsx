@@ -35,7 +35,7 @@ export const LanguageSwitcher = () => {
             setOption(option);
           }}
         >
-          <span>{option.label}</span>
+          <span className="text-sm">{option.label}</span>
         </div>
       ))}
     </div>

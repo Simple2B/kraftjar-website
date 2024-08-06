@@ -14,7 +14,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="mt-14 flex max-h-max w-[1280px] items-center justify-between">
+    <div className="mobile:w-full mobile:px-4 mobile:mt-10 mt-14 flex max-h-max w-[1280px] items-center justify-between">
       <div
         className="flex cursor-pointer items-center gap-2"
         onClick={goToHome}
@@ -24,7 +24,7 @@ export const Header = () => {
         <span className="font-bold text-textPrimary">{t("label")}</span>
       </div>
 
-      <div className="flex items-center gap-12 text-sm text-textPrimary">
+      <div className="mobile:hidden flex items-center gap-12 text-sm text-textPrimary">
         <div>{t("benefits")}</div>
         <div>{t("about")}</div>
         <div>{t("faq")}</div>
