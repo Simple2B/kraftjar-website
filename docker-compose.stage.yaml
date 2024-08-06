@@ -3,8 +3,8 @@ services:
     image: simple2b/kraftjar-website:latest
     ports:
       - 127.0.0.1:${WEB_PORT:-33016}:3000
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
     restart: always
     labels:
       - 'traefik.enable=true'
