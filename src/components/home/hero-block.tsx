@@ -3,7 +3,7 @@ import { Button } from "../custom/button";
 
 export const HeroBlock = () => {
   const t = useTranslations("Home");
-  console.log(t("title"));
+
   return (
     <div className="flex items-end">
       <div className="h-[564px] w-[752px] bg-hero-phone" />
