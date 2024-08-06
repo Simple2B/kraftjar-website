@@ -28,8 +28,9 @@ export const Header = () => {
         <div>{t("benefits")}</div>
         <div>{t("about")}</div>
         <div>{t("faq")}</div>
-        <LanguageSwitcher />
       </div>
+
+      <LanguageSwitcher />
     </div>
   );
 };

@@ -31,6 +31,7 @@ const config = {
         textPrimary: "var(--color-primary)",
         buttonPrimary: "#1B76FF",
         buttonSecondary: "#FFBB02",
+        textDisabled: "#828282",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

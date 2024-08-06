@@ -1,15 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { GlobeIcon } from "@radix-ui/react-icons";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+import { usePathname, useRouter } from "next/navigation";
+import { twMerge } from "tailwind-merge";
 
 type Option = {
   code: string;
@@ -17,38 +9,35 @@ type Option = {
 };
 
 const options: Option[] = [
-  { code: "ua", label: "ua" },
-  { code: "en", label: "en" },
+  { code: "ua", label: "Укр" },
+  { code: "en", label: "Eng" },
 ];
 
 export const LanguageSwitcher = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   const setOption = (option: Option) => {
     router.push(`/${option.code}`);
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <GlobeIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        </Button>
-      </DropdownMenuTrigger>
-
-      <DropdownMenuContent>
-        {options.map((option) => (
-          <DropdownMenuItem
-            key={option.code}
-            className="flex cursor-pointer items-center px-3 py-2 transition-colors duration-300 hover:bg-gray-200 dark:text-black"
-            onClick={() => {
-              setOption(option);
-            }}
-          >
-            <span>{option.label}</span>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex">
+      {options.map((option) => (
+        <div
+          key={option.code}
+          className={twMerge(
+            "flex select-none items-center rounded-md p-1",
+            !pathname.includes(option.code) &&
+              "text-textDisabled cursor-pointer transition-colors duration-200 hover:bg-gray-200",
+          )}
+          onClick={() => {
+            setOption(option);
+          }}
+        >
+          <span>{option.label}</span>
+        </div>
+      ))}
+    </div>
   );
 };
