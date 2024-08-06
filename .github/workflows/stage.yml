@@ -16,7 +16,7 @@ env:
 
 jobs:
   test:
-    runs-on: Linux
+    runs-on: kr-replica
     strategy:
       matrix:
         node-version: [20.x]
@@ -68,7 +68,7 @@ jobs:
   #         tags: ${{ steps.meta.outputs.tags }}
   #         labels: ${{ steps.meta.outputs.labels }}
   deploy:
-    runs-on: Linux
+    runs-on: kr-replica
     # needs: build
     steps:
       - name: Checkout
@@ -82,7 +82,7 @@ jobs:
           port: ${{ secrets.STAGE_PORT }}
           # proxy_port: 2222
           source: docker-compose.stage.yaml
-          target: ~/kraftjar-w/kraftjar-website
+          target: ~/kraftjar_web/kraftjar-website
       - name: Deploy to stage
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -91,7 +91,7 @@ jobs:
           key: ${{ secrets.STAGE_SSH_KEY }}
           port: ${{ secrets.STAGE_PORT }}
           script: |
-            cd ~/kraftjar-w/kraftjar-website &&
+            cd ~/kraftjar_web/kraftjar-website &&
             mv docker-compose.stage.yaml docker-compose.ymal &&
             docker compose pull &&
             docker compose up -d
