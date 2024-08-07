@@ -3,17 +3,17 @@ import { Button } from "../custom/button";
 
 export const HeroBlock = () => {
   const t = useTranslations("Home");
-
+  // mdDesktop:bg-contain mdDesktop:bg-no-repeat
   return (
-    <div className="mobile:flex-col mobile:w-full flex items-end">
-      <div className="mobile:bg-cover mobile:w-full mobile:h-80 h-[564px] w-[752px] bg-hero-phone" />
+    <div className="mdDesktop:flex-col mdDesktop:items-center mdDesktop:w-full flex items-end">
+      <div className="mdDesktop:bg-no-repeat mdDesktop:w-full mobileMax:h-80 mobileMax:bg-cover h-[564px] w-[752px] bg-hero-phone bg-center" />
 
-      <div className="mobile:w-full mobile:transform-none mobile:px-4 h-[432px] w-[516px] translate-x-[-68px]">
-        <h1 className="mobile:text-5xl mb-8">{t("title")}</h1>
+      <div className="desktopEnd:transform-none desktopEnd:w-full mobileMax:px-4 h-[432px] max-w-[516px] translate-x-[-68px]">
+        <h1 className="mobileMax:text-5xl mb-8">{t("title")}</h1>
 
         <p className="mb-12">{t("description")}</p>
 
-        <div className="mobile:flex-col flex gap-3">
+        <div className="desktopEnd:flex-col flex gap-3">
           <Button
             title={t("buttons.apple")}
             color="primary"

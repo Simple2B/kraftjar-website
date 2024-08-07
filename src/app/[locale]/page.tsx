@@ -3,9 +3,11 @@ import { HeroBlock } from "@/components/home/hero-block";
 
 export default function Home() {
   return (
-    <main className="mobile:w-auto mx-auto flex min-h-screen w-maxDesktop flex-col items-center border">
-      <Header />
-      <HeroBlock />
+    <main className="max-w-maxDesktop mx-auto flex min-h-screen flex-col items-center border">
+      <div className="desktopEnd:px-0 w-full px-20">
+        <Header />
+        <HeroBlock />
+      </div>
     </main>
   );
 }

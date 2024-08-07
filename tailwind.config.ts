@@ -12,6 +12,9 @@ const config = {
   theme: {
     screens: {
       mobile: { max: "390px" },
+      mobileMax: { max: "480px" },
+      desktopEnd: { max: "672px" },
+      mdDesktop: { max: "1366px" },
     },
     container: {
       center: true,
@@ -21,7 +24,7 @@ const config = {
       },
     },
     extend: {
-      width: {
+      maxWidth: {
         maxDesktop: "1440px",
       },
       backgroundImage: {
