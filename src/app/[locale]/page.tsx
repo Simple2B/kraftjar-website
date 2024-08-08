@@ -1,6 +1,6 @@
 import { Header } from "@/components/header";
 import { HeroBlock } from "@/components/home/hero-block";
-import { UkraineMap } from "@/components/home/ukraine-map";
+import { SearchBlock } from "@/components/home/search/search-block";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         <HeroBlock />
       </div>
 
-      <UkraineMap />
+      <SearchBlock />
     </main>
   );
 }

@@ -38,6 +38,8 @@ const config = {
         buttonPrimary: "#1B76FF",
         buttonSecondary: "#FFBB02",
         textDisabled: "#828282",
+        blackMain: "#111111",
+        grayLight: "#F2F2F2",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -85,6 +85,13 @@ h1 {
   color: var(--color-primary);
 }
 
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42px;
+  color: var(--color-primary);
+}
+
 p {
   font-size: 20px;
   font-weight: 400;
