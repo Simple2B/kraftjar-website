@@ -91,3 +91,7 @@ p {
   line-height: 25px;
   color: var(--color-primary);
 }
+
+path:hover {
+  fill: #ffbb02;
+}
