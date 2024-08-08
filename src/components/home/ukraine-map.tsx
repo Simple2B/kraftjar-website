@@ -59,9 +59,9 @@ export const UkraineMap = () => {
               onClick={(e) => handleClick(e, selectedPart)}
               fill={selectedPart === district.id ? "#1b76ff" : "#333333"}
               stroke="white"
-              stroke-width="0.449458"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="0.449458"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d={district.d}
             />
           </PopoverTrigger>
@@ -76,7 +76,7 @@ export const UkraineMap = () => {
             }
             className="w-fit border-none bg-transparent p-0 shadow-none"
           >
-            <div className="flex gap-1 bg-transparent">
+            <div className="flex select-none gap-1 bg-transparent">
               <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
                 <Image
                   src="/static/announcement.svg"
