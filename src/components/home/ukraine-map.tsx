@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { useClickOutside } from "@/hooks/useClickOutside";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import {
@@ -17,6 +18,8 @@ import {
 } from "@/lib/ukraine-districts/districts-list";
 
 export const UkraineMap = () => {
+  const t = useTranslations("Home.search.map");
+
   const [selectedPart, setSelectedPart] = useState("");
   const mapRef = useRef<SVGSVGElement>(null);
 
@@ -50,6 +53,7 @@ export const UkraineMap = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={mapRef}
+      className="pr-3"
     >
       {distractsList.map((district) => (
         <Popover key={district.id}>
@@ -84,7 +88,9 @@ export const UkraineMap = () => {
                   width={56}
                   height={56}
                 />
-                <span className="text-xs">{56} оголошень</span>
+                <span className="text-xs">
+                  {56} {t("announcement")}
+                </span>
               </div>
 
               <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
@@ -94,7 +100,9 @@ export const UkraineMap = () => {
                   width={56}
                   height={56}
                 />
-                <span className="text-xs">{88} фахівців</span>
+                <span className="text-xs">
+                  {88} {t("strength")}
+                </span>
               </div>
             </div>
           </PopoverContent>
