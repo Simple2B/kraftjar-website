@@ -18,7 +18,7 @@ export const LanguageSwitcher = () => {
   const pathname = usePathname();
 
   const setOption = (option: Option) => {
-    router.push(`/${option.code}`);
+    router.push(`/${option.code}${pathname.slice(3)}`);
   };
 
   return (
@@ -29,7 +29,7 @@ export const LanguageSwitcher = () => {
           className={twMerge(
             "flex select-none items-center rounded-md p-1",
             !pathname.includes(option.code) &&
-              "text-textDisabled cursor-pointer transition-colors duration-200 hover:bg-gray-200",
+              "cursor-pointer text-textDisabled transition-colors duration-200 hover:bg-gray-200",
           )}
           onClick={() => {
             setOption(option);
