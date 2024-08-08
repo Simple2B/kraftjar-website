@@ -101,4 +101,5 @@ p {
 
 path:hover {
   fill: #ffbb02;
+  cursor: pointer;
 }
