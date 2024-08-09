@@ -3,7 +3,7 @@
 import { useRouter } from "@/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { LanguageSwitcher } from "./language-switcher";
+import { LanguageSwitcher } from "../language-switcher";
 
 export const Header = () => {
   const t = useTranslations("Home.navigation");
