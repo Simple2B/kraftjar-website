@@ -36,10 +36,11 @@ const config = {
       },
       colors: {
         textPrimary: "var(--color-primary)",
-        buttonPrimary: "#1B76FF",
-        buttonSecondary: "#FFBB02",
+        blueMain: "#1B76FF",
+        yellowMain: "#FFBB02",
         textDisabled: "#828282",
         blackMain: "#111111",
+        grayDark: "#333333",
         grayLight: "#F2F2F2",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -28,7 +28,7 @@ import {
   sevastopol,
 } from "./districts-path-data";
 
-export const distractsList = [
+export const districtsList = [
   сrimea,
   mykolayiv,
   chernihiv,

@@ -16,11 +16,19 @@ export const useClickOutside = (
       }
     };
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        callback();
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchend", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchend", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [ref, callback]);
 };

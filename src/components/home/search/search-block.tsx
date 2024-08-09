@@ -49,7 +49,7 @@ export const SearchBlock = () => {
             <input
               {...register("name")}
               className={cn(
-                "h-[68px] w-full rounded-[32px] pl-14 pr-[222px] placeholder:text-primary focus-within:outline-none desktopEnd:pr-[158px] desktopEnd:placeholder:text-sm",
+                "h-[68px] w-full rounded-[32px] pl-14 pr-[222px] placeholder:text-primary focus-within:outline-none mobileMax:placeholder:text-xs desktopEnd:pr-[158px]",
                 errors.name && "border-2 border-red-500",
               )}
               placeholder={t("placeholder")}

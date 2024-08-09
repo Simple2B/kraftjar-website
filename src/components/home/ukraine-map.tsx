@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/popover";
 
 import {
-  distractsList,
+  districtsList,
   showBottom,
   showLeft,
 } from "@/lib/ukraine-districts/districts-list";
+import { cn } from "@/lib/utils";
 
 type EventType = React.MouseEvent<SVGPathElement, MouseEvent>;
 
@@ -33,6 +34,7 @@ export const UkraineMap = () => {
       const district = (e.target as SVGElement).id;
 
       if (selectedDistrict === district) {
+        reset();
         return;
       }
 
@@ -57,59 +59,66 @@ export const UkraineMap = () => {
       ref={mapRef}
       className="w-auto pr-3 desktopEnd:hidden"
     >
-      {distractsList.map((district) => (
-        <Popover key={district.id}>
-          <PopoverTrigger asChild={true}>
-            <path
-              id={district.id}
-              onClick={handleClick}
-              fill={selectedDistrict === district.id ? "#1b76ff" : "#333333"}
-              stroke="white"
-              strokeWidth="0.449458"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d={district.d}
-            />
-          </PopoverTrigger>
+      {districtsList.map((district) => {
+        const isDistrictSelected = selectedDistrict === district.id;
 
-          <PopoverContent
-            side={
-              showBottom.includes(district.id)
-                ? "bottom"
-                : showLeft.includes(district.id)
-                  ? "left"
-                  : "top"
-            }
-            className="w-fit border-none bg-transparent p-0 shadow-none"
-          >
-            <div className="flex select-none gap-1 bg-transparent">
-              <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
-                <Image
-                  src="/static/announcement.svg"
-                  alt={district.id}
-                  width={56}
-                  height={56}
-                />
-                <span className="text-xs">
-                  {ANNOUNCEMENT_VALUE} {t("announcement")}
-                </span>
-              </div>
+        return (
+          <Popover open={isDistrictSelected} key={district.id}>
+            <PopoverTrigger asChild={true}>
+              <path
+                id={district.id}
+                onClick={handleClick}
+                stroke="white"
+                strokeWidth="0.449458"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={district.d}
+                className={cn(
+                  "hover:fill-yellowMain fill-grayDark cursor-pointer",
+                  isDistrictSelected && "fill-blueMain hover:fill-blueMain",
+                )}
+              />
+            </PopoverTrigger>
 
-              <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
-                <Image
-                  src="/static/strength.svg"
-                  alt={district.id}
-                  width={56}
-                  height={56}
-                />
-                <span className="text-xs">
-                  {STRENGTH_VALUE} {t("strength")}
-                </span>
+            <PopoverContent
+              side={
+                showBottom.includes(district.id)
+                  ? "bottom"
+                  : showLeft.includes(district.id)
+                    ? "left"
+                    : "top"
+              }
+              className="w-fit border-none bg-transparent p-0 shadow-none"
+            >
+              <div className="flex select-none gap-1 bg-transparent">
+                <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
+                  <Image
+                    src="/static/announcement.svg"
+                    alt={district.id}
+                    width={56}
+                    height={56}
+                  />
+                  <span className="text-xs">
+                    {ANNOUNCEMENT_VALUE} {t("announcement")}
+                  </span>
+                </div>
+
+                <div className="grid h-[120px] w-[120px] place-content-center place-items-center rounded-[32px] bg-white text-center">
+                  <Image
+                    src="/static/strength.svg"
+                    alt={district.id}
+                    width={56}
+                    height={56}
+                  />
+                  <span className="text-xs">
+                    {STRENGTH_VALUE} {t("strength")}
+                  </span>
+                </div>
               </div>
-            </div>
-          </PopoverContent>
-        </Popover>
-      ))}
+            </PopoverContent>
+          </Popover>
+        );
+      })}
     </svg>
   );
 };

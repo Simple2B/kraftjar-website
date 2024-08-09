@@ -4,6 +4,8 @@
 
 :root {
   --color-primary: #333333;
+  --main-blue: #1b76ff;
+  --main-yellow: #ffbb02;
 }
 
 @layer utilities {
@@ -97,9 +99,4 @@ p {
   font-weight: 400;
   line-height: 25px;
   color: var(--color-primary);
-}
-
-path:hover {
-  fill: #ffbb02;
-  cursor: pointer;
 }
