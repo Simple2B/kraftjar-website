@@ -5,8 +5,10 @@ import { Link, useRouter } from "@/navigation";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const Footer = () => {
-  const t = useTranslations("Home.navigation");
+  const t = useTranslations("Home.footer");
 
   const router = useRouter();
 
@@ -35,36 +37,51 @@ export const Footer = () => {
               </span>
             </div>
 
-            <div className="text-xl text-grayLight">Крафтяр - як для себе</div>
+            <div className="text-xl text-grayLight">{t("sub-label")}</div>
           </div>
 
           <div className="flex flex-col justify-between gap-9">
-            <div className="text-sm text-grayLight">Головна</div>
-            <div className="text-sm text-grayLight">Переваги</div>
-            <div className="whitespace-nowrap text-sm text-grayLight">
-              Про додаток
-            </div>
-            <div className="text-sm text-grayLight">Питання</div>
+            <Link href="#" className="text-sm text-grayLight">
+              {t("main")}
+            </Link>
+
+            <Link href="#" className="text-sm text-grayLight">
+              {t("benefits")}
+            </Link>
+
+            <Link href="#" className="whitespace-nowrap text-sm text-grayLight">
+              {t("about")}
+            </Link>
+
+            <Link href="#" className="text-sm text-grayLight">
+              {t("faq")}
+            </Link>
           </div>
 
           <div className="flex flex-col justify-between text-white">
             <div className="mb-[72px] text-2xl smDesktop:mb-10">
-              Надсилайте свої запитання та пропозиції
+              {t("send")}
             </div>
 
             <div className="flex items-end gap-12 smDesktop:flex-col smDesktop:items-center">
               <div className="">
-                <div className="text-xl">Запитання:</div>
-                <div className="text-xl">help@uakids.org</div>
+                <div className="text-xl">{t("question")}:</div>
+                <Link className="text-xl" href="mailto:help@uakids.org">
+                  help@uakids.org
+                </Link>
               </div>
 
               <div className="">
-                <div className="text-xl">Співпраця:</div>
-                <div className="text-xl">help@uakids.org</div>
+                <div className="text-xl">{t("co-operation")}:</div>
+                <Link className="text-xl" href="mailto:help@uakids.org">
+                  help@uakids.org
+                </Link>
               </div>
               <div className="">
-                <div className="text-xl">Медія:</div>
-                <div className="text-xl">help@uakids.org</div>
+                <div className="text-xl">{t("media")}:</div>
+                <Link className="text-xl" href="mailto:help@uakids.org">
+                  help@uakids.org
+                </Link>
               </div>
             </div>
           </div>
@@ -74,14 +91,16 @@ export const Footer = () => {
 
         <div className="flex items-end justify-between desktopEnd:flex-col desktopEnd:items-center desktopEnd:gap-5 desktopEnd:text-center">
           <div>
-            <div className="text-sm text-white">Крафтяр 2024</div>
-            <div className="text-sm text-white">© Усі права захищені</div>
+            <div className="text-sm text-white">
+              {t("label")} {CURRENT_YEAR}
+            </div>
+            <div className="text-sm text-white">© {t("rights")}</div>
           </div>
 
           <div className="flex gap-8 text-sm text-[#FFFFFF66] underline underline-offset-2">
-            <Link href="">Договір оферти</Link>
+            <Link href="">{t("offer")}</Link>
 
-            <Link href="">Політика конфіденційності</Link>
+            <Link href="">{t("privacy")}</Link>
           </div>
         </div>
       </div>

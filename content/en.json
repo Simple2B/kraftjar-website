@@ -21,6 +21,21 @@
         "announcement": "announcement",
         "strength": "experts"
       }
+    },
+    "footer": {
+      "label": "Kraftjar",
+      "sub-label": "Kraftjar - as for yourself",
+      "main": "Main",
+      "benefits": "Benefits",
+      "about": "About",
+      "faq": "FAQ",
+      "send": "Send your questions and suggestions",
+      "question": "Questions",
+      "co-operation": "Cooperation",
+      "media": "Media",
+      "rights": "All rights reserved",
+      "offer": "Offer contract",
+      "privacy": "Privacy Policy"
     }
   }
 }
