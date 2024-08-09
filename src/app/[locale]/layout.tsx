@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          "mx-auto min-h-screen max-w-maxDesktop border",
+          "mx-auto min-h-screen max-w-maxDesktop",
         )}
       >
         <LanguageProvider>

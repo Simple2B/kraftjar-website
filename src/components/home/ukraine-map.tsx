@@ -53,7 +53,7 @@ export const UkraineMap = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       ref={mapRef}
-      className="pr-3"
+      className="w-auto pr-3 desktopEnd:hidden"
     >
       {distractsList.map((district) => (
         <Popover key={district.id}>

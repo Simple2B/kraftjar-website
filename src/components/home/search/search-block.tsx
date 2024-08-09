@@ -30,8 +30,8 @@ export const SearchBlock = () => {
   };
 
   return (
-    <div className="flex h-[698px] w-full items-center justify-between bg-blackMain">
-      <div className="ml-20 max-w-[512px]">
+    <div className="smDesktop:flex-col smDesktop:gap-3 smDesktop:py-3 flex h-[698px] w-full items-center justify-between bg-blackMain desktopEnd:h-[434px] desktopEnd:justify-center desktopEnd:px-4">
+      <div className="ml-20 max-w-[512px] desktopEnd:ml-0">
         <h2 className="mb-6 text-white">{t("title")}</h2>
 
         <p className="mb-10 text-grayLight">{t("description")}</p>
@@ -49,7 +49,7 @@ export const SearchBlock = () => {
             <input
               {...register("name")}
               className={twMerge(
-                "h-[68px] w-full rounded-[32px] pl-14 pr-[222px] placeholder:text-primary focus-within:outline-none",
+                "h-[68px] w-full rounded-[32px] pl-14 pr-[222px] placeholder:text-primary focus-within:outline-none desktopEnd:pr-[158px] desktopEnd:placeholder:text-sm",
                 errors.name && "border-2 border-red-500",
               )}
               placeholder={t("placeholder")}
@@ -60,7 +60,7 @@ export const SearchBlock = () => {
               type="submit"
               color="primary"
               title={t("button")}
-              className="absolute right-6 top-1/2 h-10 w-[188px] -translate-y-1/2 transform"
+              className="absolute right-6 top-1/2 h-10 max-w-[188px] -translate-y-1/2 transform desktopEnd:right-4 desktopEnd:w-[138px] desktopEnd:text-sm"
             />
           </div>
         </form>

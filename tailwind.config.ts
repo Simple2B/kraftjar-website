@@ -15,6 +15,7 @@ const config = {
       mobileMax: { max: "480px" },
       desktopEnd: { max: "672px" },
       mdDesktop: { max: "1366px" },
+      smDesktop: { max: "1184px" },
     },
     container: {
       center: true,
