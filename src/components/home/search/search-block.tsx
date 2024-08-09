@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/navigation";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -30,7 +30,7 @@ export const SearchBlock = () => {
   };
 
   return (
-    <div className="smDesktop:flex-col smDesktop:gap-3 smDesktop:py-3 flex h-[698px] w-full items-center justify-between bg-blackMain desktopEnd:h-[434px] desktopEnd:justify-center desktopEnd:px-4">
+    <div className="flex h-[698px] w-full items-center justify-between bg-blackMain desktopEnd:h-[434px] desktopEnd:justify-center desktopEnd:px-4 smDesktop:flex-col smDesktop:gap-3 smDesktop:py-3">
       <div className="ml-20 max-w-[512px] desktopEnd:ml-0">
         <h2 className="mb-6 text-white">{t("title")}</h2>
 
