@@ -17,30 +17,32 @@ import {
   showLeft,
 } from "@/lib/ukraine-districts/districts-list";
 
+type EventType = React.MouseEvent<SVGPathElement, MouseEvent>;
+
+const ANNOUNCEMENT_VALUE = 56;
+const STRENGTH_VALUE = 88;
+
 export const UkraineMap = () => {
   const t = useTranslations("Home.search.map");
 
-  const [selectedPart, setSelectedPart] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
   const mapRef = useRef<SVGSVGElement>(null);
 
   const handleClick = useCallback(
-    (
-      e: React.MouseEvent<SVGPathElement, MouseEvent>,
-      selectedDistrict: string,
-    ) => {
+    (e: EventType) => {
       const district = (e.target as SVGElement).id;
 
       if (selectedDistrict === district) {
         return;
       }
 
-      setSelectedPart(district);
+      setSelectedDistrict(district);
     },
-    [],
+    [selectedDistrict],
   );
 
   const reset = () => {
-    setSelectedPart("");
+    setSelectedDistrict("");
   };
 
   useClickOutside(mapRef, reset);
@@ -60,8 +62,8 @@ export const UkraineMap = () => {
           <PopoverTrigger asChild={true}>
             <path
               id={district.id}
-              onClick={(e) => handleClick(e, selectedPart)}
-              fill={selectedPart === district.id ? "#1b76ff" : "#333333"}
+              onClick={handleClick}
+              fill={selectedDistrict === district.id ? "#1b76ff" : "#333333"}
               stroke="white"
               strokeWidth="0.449458"
               strokeLinecap="round"
@@ -89,7 +91,7 @@ export const UkraineMap = () => {
                   height={56}
                 />
                 <span className="text-xs">
-                  {56} {t("announcement")}
+                  {ANNOUNCEMENT_VALUE} {t("announcement")}
                 </span>
               </div>
 
@@ -101,7 +103,7 @@ export const UkraineMap = () => {
                   height={56}
                 />
                 <span className="text-xs">
-                  {88} {t("strength")}
+                  {STRENGTH_VALUE} {t("strength")}
                 </span>
               </div>
             </div>

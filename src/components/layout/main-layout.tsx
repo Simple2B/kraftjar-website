@@ -1,7 +1,7 @@
-import { ChildrenProp } from "@/types/general";
+import type { PropsWithChildren } from "react";
 import { Header } from "../header";
 
-export const MainLayout = async ({ children }: ChildrenProp) => {
+export const MainLayout = async ({ children }: PropsWithChildren) => {
   return (
     <>
       <Header />

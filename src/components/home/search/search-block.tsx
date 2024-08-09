@@ -6,11 +6,11 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { twMerge } from "tailwind-merge";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 
 import { Button } from "@/components/custom/button";
 import { UkraineMap } from "../ukraine-map";
+import { cn } from "@/lib/utils";
 
 export const SearchBlock = () => {
   const router = useRouter();
@@ -48,7 +48,7 @@ export const SearchBlock = () => {
 
             <input
               {...register("name")}
-              className={twMerge(
+              className={cn(
                 "h-[68px] w-full rounded-[32px] pl-14 pr-[222px] placeholder:text-primary focus-within:outline-none desktopEnd:pr-[158px] desktopEnd:placeholder:text-sm",
                 errors.name && "border-2 border-red-500",
               )}

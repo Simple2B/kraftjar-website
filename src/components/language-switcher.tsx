@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "@/navigation";
 import { useLocale } from "next-intl";
-import { twMerge } from "tailwind-merge";
 
 type Option = {
   code: string;
@@ -32,7 +32,7 @@ export const LanguageSwitcher = () => {
       {options.map((option) => (
         <div
           key={option.code}
-          className={twMerge(
+          className={cn(
             "flex select-none items-center rounded-md p-1",
             locale !== option.code &&
               "cursor-pointer text-textDisabled transition-colors duration-200 hover:bg-gray-200",

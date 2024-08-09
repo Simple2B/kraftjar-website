@@ -1,4 +1,4 @@
-import { SearchParamsProps } from "@/types/general";
+import type { SearchParamsProps } from "@/types/general";
 
 export default async function SearchExpertsPage({
   searchParams,

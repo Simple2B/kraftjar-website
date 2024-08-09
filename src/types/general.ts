@@ -1,7 +1,3 @@
-export interface ChildrenProp {
-  children: React.ReactNode;
-}
-
-export interface SearchParamsProps {
+export type SearchParamsProps = {
   searchParams?: { [key: string]: string | string[] | undefined };
-}
+};
