@@ -1,7 +1,8 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "@/navigation";
+import { useLocale } from "next-intl";
 
 type Option = {
   code: string;
@@ -16,9 +17,14 @@ const options: Option[] = [
 export const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
 
   const setOption = (option: Option) => {
-    router.push(`/${option.code}`);
+    if (locale === option.code) {
+      return;
+    }
+
+    router.push(pathname, { locale: option.code });
   };
 
   return (
@@ -26,10 +32,10 @@ export const LanguageSwitcher = () => {
       {options.map((option) => (
         <div
           key={option.code}
-          className={twMerge(
+          className={cn(
             "flex select-none items-center rounded-md p-1",
-            !pathname.includes(option.code) &&
-              "text-textDisabled cursor-pointer transition-colors duration-200 hover:bg-gray-200",
+            locale !== option.code &&
+              "cursor-pointer text-textDisabled transition-colors duration-200 hover:bg-gray-200",
           )}
           onClick={() => {
             setOption(option);

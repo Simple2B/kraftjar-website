@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Play } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { MainLayout } from "@/components/layout/main-layout";
+import { cn } from "@/lib/utils";
 
 const inter = Play({
   weight: ["400", "700"],
@@ -24,8 +26,12 @@ export default function RootLayout({
 }: Readonly<Props>) {
   return (
     <html lang={locale}>
-      <body className={inter.className}>
-        <LanguageProvider>{children}</LanguageProvider>
+      <body
+        className={cn(inter.className, "mx-auto min-h-screen max-w-maxDesktop")}
+      >
+        <LanguageProvider>
+          <MainLayout>{children}</MainLayout>
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -11,6 +11,16 @@
     "buttons": {
       "apple": "Already at Apple Store",
       "android": "Already at Google Play"
+    },
+    "search": {
+      "title": "What can I find?",
+      "description": "We will change your approach to finding specialists and tasks in all areas. Download kraftjar today and find answers to all your needs",
+      "placeholder": "What should be done?",
+      "button": "Find an expert",
+      "map": {
+        "announcement": "announcement",
+        "strength": "experts"
+      }
     }
   }
 }
