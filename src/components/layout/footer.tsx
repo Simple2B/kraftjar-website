@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link, useRouter } from "@/navigation";
+import { Link } from "@/navigation";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 
@@ -10,20 +10,14 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const Footer = () => {
   const t = useTranslations("Home.footer");
 
-  const router = useRouter();
-
-  const goToHome = () => {
-    router.push("/");
-  };
-
   return (
     <div className="min-h-[496px] bg-blackMain">
       <div className="p-20 desktopEnd:px-4">
         <div className="flex justify-between desktopEnd:flex-col desktopEnd:items-center desktopEnd:gap-10 desktopEnd:text-center">
           <div>
-            <div
+            <Link
+              href="/"
               className="mb-2 flex cursor-pointer items-center gap-2 desktopEnd:justify-center"
-              onClick={goToHome}
             >
               <Image
                 src="/static/logos/logo.svg"
@@ -35,7 +29,7 @@ export const Footer = () => {
               <span className="text-xl font-bold text-grayLight">
                 {t("label")}
               </span>
-            </div>
+            </Link>
 
             <div className="text-xl text-grayLight">{t("sub-label")}</div>
           </div>

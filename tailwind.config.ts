@@ -16,7 +16,7 @@ const config = {
       desktopEnd: { max: "672px" },
       mdDesktop: { max: "1366px" },
       smDesktop: { max: "1184px" },
-      smDesktop2: { min: "673px", max: "1184px" },
+      smDesktopPart: { min: "673px", max: "1184px" },
     },
     container: {
       center: true,
