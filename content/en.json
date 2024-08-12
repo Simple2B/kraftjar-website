@@ -26,6 +26,20 @@
       "title": "What can I find?",
       "description": "Thanks to the fast search algorithm, Kraftjar helps you find specialists in the shortest possible time"
     },
+    "advantages": {
+      "fast": {
+        "title": "Fast search",
+        "description": "Kraftjar offers a fast and efficient way to find specialists in any field. Just enter your needs and the app will find you the right professionals in your area"
+      },
+      "opportunities": {
+        "title": "Expanding opportunities",
+        "description": "We help specialists find new tasks and expand the client base, and customers quickly find qualified specialists"
+      },
+      "quality": {
+        "title": "Quality guarantee",
+        "description": "We provide a guarantee of quality and safety for both parties, which allows customers to be sure of the quality of services"
+      }
+    },
     "footer": {
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",

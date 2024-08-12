@@ -1,3 +1,4 @@
+import { Advantages } from "@/components/home/advantages";
 import { Categories } from "@/components/home/categories";
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
@@ -11,6 +12,7 @@ export default function Home() {
 
       <SearchBlock />
       <Categories />
+      <Advantages />
     </main>
   );
 }

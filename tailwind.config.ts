@@ -16,6 +16,7 @@ const config = {
       desktopEnd: { max: "672px" },
       mdDesktop: { max: "1366px" },
       smDesktop: { max: "1184px" },
+      smDesktop2: { min: "673px", max: "1184px" },
     },
     container: {
       center: true,
@@ -94,6 +95,9 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        cardShadow: "0px 0px 5.5px 0px #ABABAB40",
       },
     },
   },
