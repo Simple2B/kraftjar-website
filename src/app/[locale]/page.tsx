@@ -1,3 +1,4 @@
+import { AboutApp } from "@/components/home/about-app";
 import { Advantages } from "@/components/home/advantages";
 import { Categories } from "@/components/home/categories";
 import { HeroBlock } from "@/components/home/hero-block";
@@ -13,6 +14,7 @@ export default function Home() {
       <SearchBlock />
       <Categories />
       <Advantages />
+      <AboutApp />
     </main>
   );
 }
