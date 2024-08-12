@@ -12,7 +12,7 @@ export const Categories = () => {
 
       <p className="mb-[60px]">{t("description")}</p>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(max-content,320px))] grid-rows-6 place-content-center place-items-center gap-y-6">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(max-content,294px))] grid-rows-6 place-content-center place-items-center gap-y-6">
         {CATEGORIES.map((category, index) => (
           <div key={category.id + "-" + index}>
             <span className="text-xl">
