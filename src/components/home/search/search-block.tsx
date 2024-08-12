@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 
 import { Button } from "@/components/custom/button";
-import { UkraineMap } from "../ukraine-map";
+import { UkraineMap } from "./ukraine-map";
 import { cn } from "@/lib/utils";
 
 export const SearchBlock = () => {
