@@ -1,26 +1,30 @@
 {
   "Home": {
     "navigation": {
-      "label": "kraftjar",
+      "label": "Kraftjar",
       "benefits": "Benefits",
       "about": "About",
       "faq": "FAQ"
     },
-    "title": "kraftjar - as for yourself",
-    "description": "We will change your approach to finding specialists and tasks in all areas. Download kraftjar today and find answers to all your needs",
+    "title": "Kraftjar - as for yourself",
+    "description": "We will change your approach to finding specialists and tasks in all areas. Download Kraftjar today and find answers to all your needs",
     "buttons": {
       "apple": "Already at Apple Store",
       "android": "Already at Google Play"
     },
     "search": {
       "title": "What can I find?",
-      "description": "We will change your approach to finding specialists and tasks in all areas. Download kraftjar today and find answers to all your needs",
+      "description": "We will change your approach to finding specialists and tasks in all areas. Download Kraftjar today and find answers to all your needs",
       "placeholder": "What should be done?",
       "button": "Find an expert",
       "map": {
         "announcement": "announcement",
         "strength": "experts"
       }
+    },
+    "categories": {
+      "title": "What can I find?",
+      "description": "Thanks to the fast search algorithm, Kraftjar helps you find specialists in the shortest possible time"
     },
     "footer": {
       "label": "Kraftjar",
