@@ -1,6 +1,7 @@
 import { AboutApp } from "@/components/home/about-app";
 import { Advantages } from "@/components/home/advantages";
 import { Categories } from "@/components/home/categories";
+import { ExpertsFeed } from "@/components/home/experts-feed";
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <Categories />
       <Advantages />
       <AboutApp />
+      <ExpertsFeed />
     </main>
   );
 }

@@ -11,7 +11,7 @@ export const Footer = () => {
   const t = useTranslations("Home.footer");
 
   return (
-    <div className="min-h-[496px] bg-blackMain">
+    <footer className="min-h-[496px] bg-blackMain">
       <div className="p-20 desktopEnd:px-4">
         <div className="flex justify-between desktopEnd:flex-col desktopEnd:items-center desktopEnd:gap-10 desktopEnd:text-center">
           <div>
@@ -98,6 +98,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
