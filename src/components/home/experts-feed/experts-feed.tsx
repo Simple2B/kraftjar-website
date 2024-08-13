@@ -1,16 +1,15 @@
+import { useTranslations } from "next-intl";
 import { ExpertsCarousel } from "./experts-carousel";
 
 export const ExpertsFeed = () => {
+  const t = useTranslations("Home.expertsFeed");
+
   return (
     <div className="w-full bg-blackMain">
-      <div className="flex justify-between px-20 py-28">
-        <p className="w-[408px] text-grayLight">
-          Завдяки швидкому алгоритму пошуку, Крафтяр допомагає знайти вам
-          фахівців в найкоротший термін
-        </p>
-        <h2 className="text-grayLight">
-          Знайти фахівця з Крафтяр - тепер легше!
-        </h2>
+      <div className="flex justify-between gap-6 px-20 py-28 desktopEnd:flex-col-reverse desktopEnd:px-4 desktopEnd:pb-10 desktopEnd:pt-20">
+        <p className="max-w-[408px] text-grayLight">{t("description")}</p>
+
+        <h2 className="text-grayLight">{t("title")}</h2>
       </div>
 
       <ExpertsCarousel />

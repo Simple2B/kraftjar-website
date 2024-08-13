@@ -1,30 +1,32 @@
 "use client";
 
+import { Link } from "@/navigation";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
 import { Button } from "../../custom/button";
-import { Link } from "@/navigation";
 import { DUMMY_USERS } from "@/lib/constants";
 
 export const ExpertsCarousel = () => {
+  const t = useTranslations("Home.expertsFeed.carousel");
+
   return (
     <Carousel
-      // plugins={[
-      //   Autoplay({
-      //     stopOnInteraction: false,
-      //     stopOnMouseEnter: true,
-      //     delay: 3000,
-      //   }),
-      // ]}
-      className="w-full max-w-sm"
+      plugins={[
+        Autoplay({
+          stopOnInteraction: false,
+          stopOnMouseEnter: true,
+          delay: 3000,
+        }),
+      ]}
+      className="w-full"
       opts={{
         loop: true,
         align: "center",
@@ -52,9 +54,9 @@ export const ExpertsCarousel = () => {
 
             <div
               className={cn(
-                "expert-card h-[198px] w-[298px] select-none rounded-3xl border bg-[linear-gradient(0.06deg,#1B76FF_0.05%,#6FA9FF_99.95%)] p-3",
+                "expert-card h-[198px] w-[298px] select-none rounded-3xl border border-blueMain bg-[linear-gradient(to_right,_#1a73e8,_#89c6ff)] p-3",
                 index % 2 === 1 &&
-                  "bg-[linear-gradient(0.06deg,#F2B705_0.05%,#FFDB70_99.95%)]",
+                  "border-yellowMain bg-[linear-gradient(0.06deg,#F2B705_0.05%,#FFDB70_99.95%)]",
               )}
             >
               <div className="y-[6px] mb-2 w-max rounded-3xl bg-[#FFFFFF33] px-[10px] text-[#FFFFFF99]">
@@ -105,7 +107,7 @@ export const ExpertsCarousel = () => {
                 </div>
 
                 <Button
-                  title="Запропонувати роботу"
+                  title={t("button")}
                   color="white"
                   className="h-10 w-full"
                 />
