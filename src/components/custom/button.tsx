@@ -7,7 +7,12 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconSrc?: string;
 }
 
-export const Button = ({ title, color, iconSrc, className }: Props) => {
+export const Button = ({
+  title,
+  color = "primary",
+  iconSrc,
+  className,
+}: Props) => {
   return (
     <button
       className={cn(
