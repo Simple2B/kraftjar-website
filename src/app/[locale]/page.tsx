@@ -4,6 +4,7 @@ import { Categories } from "@/components/home/categories";
 import { ExpertsFeed } from "@/components/home/experts-feed/experts-feed";
 
 import { HeroBlock } from "@/components/home/hero-block";
+import { HowToStart } from "@/components/home/how-to-start";
 import { SearchBlock } from "@/components/home/search/search-block";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Advantages />
       <AboutApp />
       <ExpertsFeed />
+      <HowToStart />
     </main>
   );
 }

@@ -31,6 +31,7 @@ const config = {
       },
       backgroundImage: {
         "hero-phone": "url('/static/phone/iPhone-15-Pro.png')",
+        ellipse: "url('/static/ellipse.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
