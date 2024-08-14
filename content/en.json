@@ -44,6 +44,13 @@
       "title": "Find an Expert or Find a Task from Crafters",
       "description": "Kraftjar is your reliable assistant in finding specialists in any field or finding new tasks. Download the app right now and conveniently search and order wherever you are!"
     },
+    "expertsFeed": {
+      "title": "Finding a Kraftjar experts is now easier!",
+      "description": "Thanks to the fast search algorithm, Kraftjar helps you find experts in the shortest possible time",
+      "carousel": {
+        "button": "Offer a job"
+      }
+    },
     "footer": {
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",

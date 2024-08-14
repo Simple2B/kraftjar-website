@@ -3,17 +3,23 @@ import Image from "next/image";
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
-  color: "primary" | "secondary";
+  color?: "primary" | "secondary" | "white";
   iconSrc?: string;
 }
 
-export const Button = ({ title, color, iconSrc, className }: Props) => {
+export const Button = ({
+  title,
+  color = "primary",
+  iconSrc,
+  className,
+}: Props) => {
   return (
     <button
       className={cn(
-        "transition-colowercase flex h-12 w-[224px] items-center justify-center gap-[10px] rounded-3xl px-4 py-2 text-white desktopEnd:w-full",
+        "transition-colowercase flex h-12 w-[224px] items-center justify-center gap-[10px] rounded-3xl px-4 py-2 text-white transition-colors desktopEnd:w-full",
         color === "primary" && "bg-blueMain hover:bg-blue-700",
         color === "secondary" && "bg-yellowMain hover:bg-[#e0a70d]",
+        color === "white" && "bg-white text-blackMain hover:bg-gray-200",
         className,
       )}
     >
