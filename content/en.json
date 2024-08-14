@@ -51,6 +51,13 @@
         "button": "Offer a job"
       }
     },
+    "instruction": {
+      "title": "How to start?",
+      "description": "Download the app right now to start using all the benefits of Kraftjar and find professionals or tasks according to your request",
+      "firstStep": "Open the app store on your device and search for the Kraftjar app",
+      "secondStep": "After finding the app, click the Install button and wait for the installation process to complete",
+      "thirdStep": "Open the Kraftjar application, register and search for specialists or tasks that interest you"
+    },
     "footer": {
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",

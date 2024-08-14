@@ -4,26 +4,18 @@ import { INSTRUCTIONS_STEPS } from "@/lib/constants";
 
 export const HowToStart = () => {
   return (
-    <div className="flex w-full items-center gap-14">
-      <div className="bg-ellipse h-[800px] w-[700px] bg-left bg-no-repeat mobileMax:h-80 mobileMax:bg-cover mdDesktop:w-full">
+    <div className="flex w-full items-center gap-14 desktopEnd:flex-col">
+      <div className="bg-ellipse desktopEnd:bg-ellipse-mobile h-[800px] max-w-[700px] bg-left bg-no-repeat mobileMax:max-h-[538px] mobileMax:bg-cover mobileMax:bg-center mdDesktop:w-full smDesktopPart:bg-contain">
         <Image
           src="/static/phone/three-phones.png"
           alt="Phones"
           width={932}
           height={700}
-          className="translate-y-[84px] object-none object-left"
+          className="translate-y-[84px] object-none object-left mobileMax:h-[456px] mobileMax:translate-x-[-4%] mobileMax:translate-y-[8%] mobileMax:object-cover smDesktopPart:object-contain"
         />
       </div>
 
-      <div className="w-[660px]">
-        <h2 className="mb-6">Як почати?</h2>
-        <p className="mb-8">
-          Завантажуйте застосунок прямо зараз, щоб почати використовувати усі
-          переваги Крафтяр і знаходити фахівців або завдання за вашим запитом
-        </p>
-
-        <SetupInstruction data={INSTRUCTIONS_STEPS} />
-      </div>
+      <SetupInstruction data={INSTRUCTIONS_STEPS} />
     </div>
   );
 };
