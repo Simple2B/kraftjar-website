@@ -9,40 +9,46 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselOptions,
+  CarouselPlugin,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { Button } from "../../custom/button";
 import { DUMMY_USERS } from "@/lib/constants";
+
+const CAROUSEL_PLUGINS: CarouselPlugin = [
+  Autoplay({
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+    delay: 3000,
+  }),
+];
+
+const CAROUSEL_OPTS: Partial<CarouselOptions> = {
+  loop: true,
+  align: "center",
+};
 
 export const ExpertsCarousel = () => {
   const t = useTranslations("Home.expertsFeed.carousel");
 
   return (
     <Carousel
-      plugins={[
-        Autoplay({
-          stopOnInteraction: false,
-          stopOnMouseEnter: true,
-          delay: 3000,
-        }),
-      ]}
+      plugins={CAROUSEL_PLUGINS}
       className="w-full"
-      opts={{
-        loop: true,
-        align: "center",
-      }}
+      opts={CAROUSEL_OPTS}
     >
       <CarouselContent className="gap-3 pl-3">
         {DUMMY_USERS.map((user, index) => (
           <CarouselItem
             key={user.id}
-            className={cn("relative h-[198px] basis-[298px]")}
+            className={"relative h-[198px] basis-[298px]"}
           >
             <Link
               href="#"
-              className={cn(
-                "absolute right-[-8px] top-[-6px] flex h-10 w-10 items-center justify-center rounded-full border border-[#FFFFFF33] bg-blackMain transition-colors hover:bg-[#FFFFFF33]",
-              )}
+              className={
+                "absolute right-[-8px] top-[-6px] flex h-10 w-10 items-center justify-center rounded-full border border-[#FFFFFF33] bg-blackMain transition-colors hover:bg-[#FFFFFF33]"
+              }
             >
               <Image
                 src="/static/share.svg"
