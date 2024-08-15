@@ -58,6 +58,31 @@
       "secondStep": "After finding the app, click the Install button and wait for the installation process to complete",
       "thirdStep": "Open the Kraftjar application, register and search for specialists or tasks that interest you"
     },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "first": {
+          "question": "How to add a new task or project?",
+          "answer": "To add a new task or project, you need to register in the Kraftjar app, enter all the necessary data and click the 'Add Task' button"
+        },
+        "second": {
+          "question": "How to set prices for your services or project?",
+          "answer": "To set prices for your services or project, you need to register in the Kraftjar app, enter all the necessary data and click the 'Add Task' button"
+        },
+        "third": {
+          "question": "Is it possible to cancel or modify an already created task?",
+          "answer": "Yes, you can cancel or modify an already created task, to do this you need to go to your profile, select the task you want to cancel or modify, and click the appropriate button"
+        },
+        "fourth": {
+          "question": "Is it possible to cancel or modify an already created task?",
+          "answer": "Yes, you can cancel or modify an already created task, to do this you need to go to your profile, select the task you want to cancel or modify, and click the appropriate button"
+        },
+        "fifth": {
+          "question": "How to add a new task or project?",
+          "answer": "To add a new task or project, you need to register in the Kraftjar app, enter all the necessary data and click the 'Add Task' button"
+        }
+      }
+    },
     "footer": {
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",
