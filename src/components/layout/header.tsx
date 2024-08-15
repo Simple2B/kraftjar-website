@@ -17,9 +17,9 @@ export const Header = () => {
       </Link>
 
       <div className="flex items-center gap-12 text-sm text-textPrimary desktopEnd:hidden">
-        <div>{t("benefits")}</div>
-        <div>{t("about")}</div>
-        <div>{t("faq")}</div>
+        <Link href="/#advantages">{t("advantages")}</Link>
+        <Link href="/#about">{t("about")}</Link>
+        <Link href="/#faq">{t("faq")}</Link>
       </div>
 
       <LanguageSwitcher />

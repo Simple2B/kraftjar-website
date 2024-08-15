@@ -2,7 +2,7 @@
   "Home": {
     "navigation": {
       "label": "Kraftjar",
-      "benefits": "Benefits",
+      "advantages": "Advantages",
       "about": "About",
       "faq": "FAQ"
     },
@@ -87,7 +87,7 @@
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",
       "main": "Main",
-      "benefits": "Benefits",
+      "advantages": "Advantages",
       "about": "About",
       "faq": "FAQ",
       "send": "Send your questions and suggestions",

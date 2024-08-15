@@ -38,7 +38,10 @@ export const Faq = () => {
   ];
 
   return (
-    <div className="w-full px-20 py-28 desktopEnd:px-4 desktopEnd:py-20">
+    <div
+      id="faq"
+      className="w-full px-20 py-28 desktopEnd:px-4 desktopEnd:py-20"
+    >
       <h2 className="mb-14">{t("title")}</h2>
 
       <Accordion type="single" collapsible className="">

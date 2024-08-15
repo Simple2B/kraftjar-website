@@ -42,19 +42,22 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-between gap-9">
-            <Link href="#" className="text-sm text-grayLight">
+            <Link href="/#" className="text-sm text-grayLight">
               {t("main")}
             </Link>
 
-            <Link href="#" className="text-sm text-grayLight">
-              {t("benefits")}
+            <Link href="/#advantages" className="text-sm text-grayLight">
+              {t("advantages")}
             </Link>
 
-            <Link href="#" className="whitespace-nowrap text-sm text-grayLight">
+            <Link
+              href="/#about"
+              className="whitespace-nowrap text-sm text-grayLight"
+            >
               {t("about")}
             </Link>
 
-            <Link href="#" className="text-sm text-grayLight">
+            <Link href="/#faq" className="text-sm text-grayLight">
               {t("faq")}
             </Link>
           </div>
