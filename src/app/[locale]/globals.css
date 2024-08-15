@@ -120,3 +120,11 @@ p {
   C - Curves
   H - Horizontal Line */
 }
+
+.circle-plus > path {
+  color: #111111;
+}
+
+.circle-plus > circle {
+  color: #15151533;
+}

@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Button } from "../custom/button";
+import { ButtonBundle } from "../custom/button-bundle";
 
 export const HeroBlock = () => {
   const t = useTranslations("Home");
@@ -13,18 +13,10 @@ export const HeroBlock = () => {
 
         <p className="mb-12">{t("description")}</p>
 
-        <div className="flex gap-3 desktopEnd:flex-col">
-          <Button
-            title={t("buttons.apple")}
-            color="primary"
-            iconSrc="/static/phone/apple-store.svg"
-          />
-          <Button
-            title={t("buttons.android")}
-            color="secondary"
-            iconSrc="/static/phone/google-play.svg"
-          />
-        </div>
+        <ButtonBundle
+          appleTitle={t("buttons.apple")}
+          googleTitle={t("buttons.google")}
+        />
       </div>
     </div>
   );

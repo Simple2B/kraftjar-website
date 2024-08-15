@@ -42,7 +42,7 @@ export const ExpertsCarousel = () => {
         {DUMMY_USERS.map((user, index) => (
           <CarouselItem
             key={user.id}
-            className={"relative h-[198px] basis-[298px]"}
+            className={"relative h-[184px] basis-[298px]"}
           >
             <Link
               href="#"
@@ -60,7 +60,7 @@ export const ExpertsCarousel = () => {
 
             <div
               className={cn(
-                "expert-card h-[198px] w-[298px] select-none rounded-3xl border border-blueMain bg-[linear-gradient(to_right,_#1a73e8,_#89c6ff)] p-3",
+                "expert-card h-[184px] w-[298px] select-none rounded-3xl border border-blueMain bg-[linear-gradient(to_right,_#1a73e8,_#89c6ff)] p-3",
                 index % 2 === 1 &&
                   "border-yellowMain bg-[linear-gradient(0.06deg,#F2B705_0.05%,#FFDB70_99.95%)]",
               )}

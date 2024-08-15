@@ -31,6 +31,8 @@ const config = {
       },
       backgroundImage: {
         "hero-phone": "url('/static/phone/iPhone-15-Pro.png')",
+        ellipse: "url('/static/ellipse.png')",
+        "ellipse-mobile": "url('/static/ellipse-mobile.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -98,6 +100,7 @@ const config = {
       },
       boxShadow: {
         cardShadow: "0px 0px 5.5px 0px #ABABAB40",
+        step: " 0px 0px 4px 0px #A1A1A140",
       },
     },
   },
