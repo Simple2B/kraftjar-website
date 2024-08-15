@@ -1,15 +1,10 @@
 import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Button } from "./button";
+import { ButtonBundle } from "./button-bundle";
 
-type Props = {
-  data: { id: number; text: string }[];
-};
-
-export const SetupInstruction = ({ data }: Props) => {
+export const SetupInstruction = () => {
   const t = useTranslations("Home");
-  const dataLength = data.length;
 
   const INSTRUCTIONS_STEPS = [
     {
@@ -26,12 +21,14 @@ export const SetupInstruction = ({ data }: Props) => {
     },
   ];
 
+  const dataLength = INSTRUCTIONS_STEPS.length;
+
   return (
     <div className="max-w-[660px] desktopEnd:px-4">
       <h2 className="mb-6">{t("instruction.title")}</h2>
       <p className="mb-8">{t("instruction.description")}</p>
 
-      <div className="">
+      <div>
         <ol
           style={{
             gridTemplateRows: `repeat(${dataLength}, minmax(78px, 1fr))`,
@@ -39,19 +36,19 @@ export const SetupInstruction = ({ data }: Props) => {
           className="mb-8 grid grid-flow-row auto-rows-max grid-cols-[max-content_1fr] items-center desktopEnd:gap-y-12"
         >
           {INSTRUCTIONS_STEPS.map((item, i) => {
-            const lastItem = i === dataLength - 1;
+            const isLastItem = i === dataLength - 1;
 
             return (
               <Fragment key={item.id}>
                 <li
                   className={cn(
                     "relative flex-1",
-                    !lastItem &&
+                    !isLastItem &&
                       "after:absolute after:left-5 after:h-[50px] after:border-r-2 after:border-dashed after:border-yellowMain desktopEnd:after:h-[108px]",
                   )}
                 >
                   <div className="flex w-full items-center font-medium">
-                    <span className="shadow-step mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm">
+                    <span className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm shadow-step">
                       {i + 1}
                     </span>
                   </div>
@@ -61,7 +58,7 @@ export const SetupInstruction = ({ data }: Props) => {
                   className={cn(
                     "place-self-center",
                     i === 0 && "place-self-start",
-                    lastItem && "place-self-end",
+                    isLastItem && "place-self-end",
                   )}
                 >
                   {item.text}
@@ -71,18 +68,10 @@ export const SetupInstruction = ({ data }: Props) => {
           })}
         </ol>
 
-        <div className="flex gap-3 desktopEnd:flex-col">
-          <Button
-            title={t("buttons.apple")}
-            color="primary"
-            iconSrc="/static/phone/apple-store.svg"
-          />
-          <Button
-            title={t("buttons.android")}
-            color="secondary"
-            iconSrc="/static/phone/google-play.svg"
-          />
-        </div>
+        <ButtonBundle
+          appleTitle={t("buttons.apple")}
+          googleTitle={t("buttons.google")}
+        />
       </div>
     </div>
   );

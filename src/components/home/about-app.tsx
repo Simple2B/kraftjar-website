@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "../custom/button";
 import { useTranslations } from "next-intl";
+import { ButtonBundle } from "../custom/button-bundle";
 
 export const AboutApp = () => {
   const t = useTranslations("Home");
@@ -12,18 +12,10 @@ export const AboutApp = () => {
 
         <p className="mb-8">{t("about.description")}</p>
 
-        <div className="flex gap-3 desktopEnd:flex-col">
-          <Button
-            title={t("buttons.apple")}
-            color="primary"
-            iconSrc="/static/phone/apple-store.svg"
-          />
-          <Button
-            title={t("buttons.android")}
-            color="secondary"
-            iconSrc="/static/phone/google-play.svg"
-          />
-        </div>
+        <ButtonBundle
+          appleTitle={t("buttons.apple")}
+          googleTitle={t("buttons.google")}
+        />
       </div>
 
       <div>

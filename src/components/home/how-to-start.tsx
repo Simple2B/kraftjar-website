@@ -1,11 +1,10 @@
 import Image from "next/image";
 import { SetupInstruction } from "../custom/setup-instruction";
-import { INSTRUCTIONS_STEPS } from "@/lib/constants";
 
 export const HowToStart = () => {
   return (
     <div className="flex w-full items-center gap-14 desktopEnd:flex-col">
-      <div className="bg-ellipse desktopEnd:bg-ellipse-mobile h-[800px] max-w-[700px] bg-left bg-no-repeat mobileMax:max-h-[538px] mobileMax:bg-cover mobileMax:bg-center mdDesktop:w-full smDesktopPart:bg-contain">
+      <div className="h-[800px] max-w-[700px] bg-ellipse bg-left bg-no-repeat mobileMax:max-h-[538px] mobileMax:bg-cover mobileMax:bg-center desktopEnd:bg-ellipse-mobile mdDesktop:w-full smDesktopPart:bg-contain">
         <Image
           src="/static/phone/three-phones.png"
           alt="Phones"
@@ -15,7 +14,7 @@ export const HowToStart = () => {
         />
       </div>
 
-      <SetupInstruction data={INSTRUCTIONS_STEPS} />
+      <SetupInstruction />
     </div>
   );
 };
