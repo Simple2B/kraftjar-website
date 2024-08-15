@@ -12,6 +12,7 @@ export const Button = ({
   color = "primary",
   iconSrc,
   className,
+  ...props
 }: Props) => {
   return (
     <button
@@ -22,6 +23,7 @@ export const Button = ({
         color === "white" && "bg-white text-blackMain hover:bg-gray-200",
         className,
       )}
+      {...props}
     >
       {iconSrc && getButtonIcon(iconSrc)}
       <span>{title}</span>

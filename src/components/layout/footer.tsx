@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { Link } from "@/navigation";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
@@ -9,6 +10,12 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export const Footer = () => {
   const t = useTranslations("Home.footer");
+  const routeParams = useParams();
+
+  // To hide footer on 404 page
+  if (routeParams.hasOwnProperty("error")) {
+    return null;
+  }
 
   return (
     <footer className="min-h-[496px] bg-blackMain">

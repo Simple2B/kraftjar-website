@@ -97,6 +97,10 @@
       "rights": "All rights reserved",
       "offer": "Offer contract",
       "privacy": "Privacy Policy"
+    },
+    "notFound": {
+      "description": "Unfortunately, we couldn't find the page you were looking for. It may have been deleted, changed, or never existed.",
+      "button": "Go to home"
     }
   }
 }
