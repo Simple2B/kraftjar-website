@@ -7,7 +7,7 @@ export const Categories = () => {
   const t = useTranslations("Home.categories");
 
   return (
-    <div className="my-28 text-center desktopEnd:my-20 smDesktop:px-4">
+    <div className="py-28 text-center desktopEnd:py-20 smDesktop:px-4">
       <h2 className="mb-6">{t("title")}</h2>
 
       <p className="mb-[60px]">{t("description")}</p>
