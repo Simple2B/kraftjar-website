@@ -25,7 +25,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# RUN yarn gen-api
+RUN yarn gen-api
 
 RUN \
   if [ -f yarn.lock ]; then yarn build; \

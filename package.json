@@ -11,7 +11,9 @@
     "bump-patch": "npm version patch",
     "bump-minor": "npm version minor",
     "bump-major": "npm version major",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "get-openapi": "./scripts/get-openapi-json.sh",
+    "gen-api": "orval --config ./orval.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -21,6 +23,7 @@
     "@radix-ui/react-popover": "^1.1.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "axios": "^1.7.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.1.8",
@@ -44,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "orval": "^7.0.1",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
