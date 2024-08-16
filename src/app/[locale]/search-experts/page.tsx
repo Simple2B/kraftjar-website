@@ -1,4 +1,9 @@
+import { getUsers } from "@/orval_api/users/users";
 import type { SearchParamsProps } from "@/types/general";
+
+import { ExpertsList } from "@/components/experts/experts-list";
+import { AboutApp } from "@/components/home/about-app";
+import { Faq } from "@/components/home/faq";
 
 export default async function SearchExpertsPage({
   searchParams,
@@ -9,10 +14,19 @@ export default async function SearchExpertsPage({
     query = searchParams.name;
   }
 
+  const { aPIPublicSearchUsers } = getUsers();
+
+  const services = await aPIPublicSearchUsers({
+    lang: "ua",
+    selected_locations: [],
+    query: query,
+  });
+
   return (
-    <div>
-      <h1>Search Experts Page</h1>
-      <h2>Query: {query}</h2>
-    </div>
+    <>
+      <ExpertsList experts={services.data} />
+      <AboutApp />
+      <Faq />
+    </>
   );
 }
