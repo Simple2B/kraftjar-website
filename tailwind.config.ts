@@ -103,6 +103,7 @@ const config = {
         step: "0px 0px 4px 0px #A1A1A140",
         inputShadow: "0px 0px 4px 0px #74747440",
         avatarShadow: "0px 0px 4px 0px #7E7E7E40",
+        expertInfo: "0px 0px 6.8px 0px #9D9D9D40",
       },
     },
   },

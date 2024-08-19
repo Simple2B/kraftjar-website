@@ -83,6 +83,9 @@
         }
       }
     },
+    "expertPage": {
+      "locale": "en-GB"
+    },
     "footer": {
       "label": "Kraftjar",
       "sub-label": "Kraftjar - as for yourself",

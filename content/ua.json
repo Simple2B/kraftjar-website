@@ -83,6 +83,9 @@
         }
       }
     },
+    "expertPage": {
+      "locale": "uk-UA"
+    },
     "footer": {
       "label": "Крафтяр",
       "sub-label": "Крафтяр - як для себе",
