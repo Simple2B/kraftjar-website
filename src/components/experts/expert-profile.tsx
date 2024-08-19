@@ -2,9 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+
 import { formatDate } from "@/lib/utils";
-import { PublicUserProfileOut } from "@/orval_api/model";
 import { StarIcon } from "@/lib/icons";
+import type { PublicUserProfileOut } from "@/orval_api/model";
+import { QRCodeWrapper } from "../custom/qr-code";
+
+import { Modal } from "../custom/modal";
+import { SetupInstruction } from "../custom/setup-instruction";
 
 type Props = {
   expert: PublicUserProfileOut;
@@ -34,9 +39,9 @@ export const ExpertProfile = ({ expert }: Props) => {
   const roundRating = Math.round(expert.average_rate);
 
   return (
-    <div className="mt-14 px-20">
-      <div className="shadow-expertInfo mb-12 flex items-center justify-between rounded-3xl px-10">
-        <div className="flex items-center gap-6">
+    <div className="mt-14 px-20 desktopEnd:px-4">
+      <div className="shadow-expertInfo mb-12 flex items-center justify-between rounded-3xl px-10 py-4 desktopEnd:py-10 smDesktop:flex-col">
+        <div className="flex items-center gap-6 desktopEnd:mb-10 desktopEnd:flex-col">
           <Image
             src="/static/experts-avatar.png"
             alt="Avatar"
@@ -45,7 +50,7 @@ export const ExpertProfile = ({ expert }: Props) => {
             className="rounded-full"
           />
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 desktopEnd:items-center">
             <div className="text-2xl">{expert.fullname}</div>
 
             <div className="star-rating flex gap-1">
@@ -64,7 +69,7 @@ export const ExpertProfile = ({ expert }: Props) => {
               })}
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 smDesktop:flex-col">
               <div className="flex gap-2">
                 <Image
                   src="/static/location.svg"
@@ -93,8 +98,15 @@ export const ExpertProfile = ({ expert }: Props) => {
           </div>
         </div>
 
-        <div>
-          <h3>QR Code</h3>
+        <div className="flex flex-col items-center justify-start">
+          <QRCodeWrapper expertUUID={expert.uuid} />
+
+          <Modal
+            buttonTitle="Запропонувати роботу"
+            modalTitle="Запропонувати роботу фахівцеві"
+          >
+            <SetupInstruction hideTitle />
+          </Modal>
         </div>
       </div>
 
@@ -126,7 +138,7 @@ export const ExpertProfile = ({ expert }: Props) => {
         </div>
       </div>
 
-      <div className="w-[344px]">
+      <div className="max-w-[344px]">
         <div className="mb-8 text-2xl font-bold">Досвід&Сертифікати</div>
 
         {EXPERIENCE.map((e) => (

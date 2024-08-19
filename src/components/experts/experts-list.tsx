@@ -7,6 +7,7 @@ import Image from "next/image";
 import type { UserSearchOut } from "@/orval_api/model";
 import { Separator } from "../ui/separator";
 import { Modal } from "../custom/modal";
+import { QRCodeWrapper } from "../custom/qr-code";
 
 type Props = {
   users: UserSearchOut[];
@@ -69,7 +70,9 @@ export const ExpertsList = ({ users }: Props) => {
               modalTitle="Запропонувати роботу фахівцеві"
               buttonTitle="Запропонувати роботу"
             >
-              {user.fullname}
+              <div className="flex flex-col items-center text-center">
+                <QRCodeWrapper expertUUID={user.uuid} />
+              </div>
             </Modal>
           </Link>
 

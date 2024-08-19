@@ -26,7 +26,7 @@ export const Modal = ({ modalTitle, buttonTitle, children }: Props) => {
       <Dialog>
         <DialogTrigger>{buttonTitle}</DialogTrigger>
         <DialogContent>
-          <DialogTitle>{modalTitle}</DialogTitle>
+          <DialogTitle className="text-2xl">{modalTitle}</DialogTitle>
           <DialogDescription>{children}</DialogDescription>
         </DialogContent>
       </Dialog>
