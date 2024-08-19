@@ -1,9 +1,11 @@
+"use client";
+
 import { Fragment } from "react";
 import Image from "next/image";
 
 import type { PublicUsersSearchOut } from "@/orval_api/model";
-import { Button } from "../custom/button";
 import { Separator } from "../ui/separator";
+import { Modal } from "../custom/modal";
 
 type Props = {
   experts: PublicUsersSearchOut;
@@ -12,7 +14,7 @@ type Props = {
 export const ExpertsList = ({ experts }: Props) => {
   return (
     <div className="mx-auto my-14 max-w-[1280px] mdDesktop:px-4">
-      <div className="shadow-inputShadow relative mb-14 rounded-[32px]">
+      <div className="relative mb-14 rounded-[32px] shadow-inputShadow">
         <Image
           className="absolute left-6 top-1/2 -translate-y-1/2 transform"
           src="/static/search-normal.svg"
@@ -46,9 +48,12 @@ export const ExpertsList = ({ experts }: Props) => {
         <div>
           {experts.top_users?.map((user) => (
             <Fragment key={user.id}>
-              <div className="flex h-20 select-none items-center justify-between desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start">
+              <div
+                onClick={() => console.log(user.fullname)}
+                className="flex cursor-pointer select-none items-center justify-between py-8 transition-colors hover:bg-grayLight desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start"
+              >
                 <div className="flex gap-6 desktopEnd:mb-6">
-                  <div className="shadow-avatarShadow flex h-20 w-20 justify-center rounded-full">
+                  <div className="flex h-20 w-20 justify-center rounded-full shadow-avatarShadow">
                     <Image
                       src="/static/boy.svg"
                       alt="Avatar"
@@ -90,14 +95,15 @@ export const ExpertsList = ({ experts }: Props) => {
                   </div>
                 </div>
 
-                <Button
-                  title={"Запропонувати роботу"}
-                  color="secondary"
-                  className="h-10"
-                />
+                <Modal
+                  modalTitle="Запропонувати роботу фахівцеві"
+                  buttonTitle="Запропонувати роботу"
+                >
+                  {user.fullname}
+                </Modal>
               </div>
 
-              <Separator className="my-8" />
+              <Separator className="" />
             </Fragment>
           ))}
         </div>

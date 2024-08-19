@@ -4,12 +4,12 @@ import { Footer } from "./footer";
 
 export const MainLayout = async ({ children }: PropsWithChildren) => {
   return (
-    <>
+    <div className="mx-auto min-h-screen max-w-maxDesktop">
       <Header />
 
       {children}
 
       <Footer />
-    </>
+    </div>
   );
 };
