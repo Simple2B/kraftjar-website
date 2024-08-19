@@ -14,7 +14,8 @@ type Props = {
 
 export const Modal = ({ modalTitle, buttonTitle, children }: Props) => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    event.stopPropagation();
+    event.preventDefault(); // Prevent the link from navigating
+    event.stopPropagation(); // Prevent the event from bubbling up to the link
   };
 
   return (

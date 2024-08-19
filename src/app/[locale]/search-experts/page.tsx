@@ -1,7 +1,7 @@
 import { getUsers } from "@/orval_api/users/users";
 import type { SearchParamsProps } from "@/types/general";
 
-import { ExpertsList } from "@/components/experts/experts-list";
+import { Experts } from "@/components/experts/experts";
 import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 
@@ -24,7 +24,7 @@ export default async function SearchExpertsPage({
 
   return (
     <>
-      <ExpertsList experts={services.data} />
+      <Experts experts={services.data} query={query} />
       <AboutApp />
       <Faq />
     </>
