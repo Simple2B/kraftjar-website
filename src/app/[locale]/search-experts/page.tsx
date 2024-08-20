@@ -21,11 +21,15 @@ export default async function SearchExpertsPage({
 
   const {
     data: { top_users },
-  } = await aPIPublicSearchUsers({
-    lang: "ua",
-    selected_locations: [],
-    query: query,
-  });
+  } = await aPIPublicSearchUsers(
+    {
+      lang: "ua",
+      selected_locations: [],
+      query: query,
+    },
+    {},
+    { baseURL: process.env.API_URL },
+  );
 
   return (
     <>

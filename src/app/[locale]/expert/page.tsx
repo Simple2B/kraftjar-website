@@ -12,7 +12,11 @@ export default async function SearchExpertsPage({
     query = searchParams.uuid;
   }
   const { aPIGetPublicUserProfile } = getUsers();
-  const { data } = await aPIGetPublicUserProfile(query);
+  const { data } = await aPIGetPublicUserProfile(
+    query,
+    {},
+    { baseURL: process.env.API_URL },
+  );
 
   return (
     <>
