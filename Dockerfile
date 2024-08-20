@@ -9,8 +9,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-# (with * in yarn.lock* - git actions is failing with error)
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock* ./
 
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
