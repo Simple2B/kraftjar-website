@@ -33,7 +33,7 @@ export default async function SearchExpertsPage({
         <h2 className="mb-8">{t("title")}</h2>
 
         {!!top_users?.length ? (
-          <ExpertsList users={top_users} />
+          <ExpertsList experts={top_users} />
         ) : (
           <div>{t("notFound")}</div>
         )}
