@@ -1,6 +1,5 @@
-"use client";
-
 import { Fragment } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import Image from "next/image";
 
@@ -14,6 +13,8 @@ type Props = {
 };
 
 export const ExpertsList = ({ experts }: Props) => {
+  const t = useTranslations("Home.other");
+
   return (
     <div>
       {experts.map(
@@ -28,9 +29,9 @@ export const ExpertsList = ({ experts }: Props) => {
         }) => {
           const avgRate = average_rate.toFixed(1);
           const expertLocations =
-            locations.map((l) => l.name).join(", ") || "Немає локації...";
+            locations.map((l) => l.name).join(", ") || t("noLocation");
           const expertServices =
-            services.map((s) => s.name).join(", ") || "Немає послуг...";
+            services.map((s) => s.name).join(", ") || t("noService");
 
           return (
             <Fragment key={id}>
@@ -45,7 +46,6 @@ export const ExpertsList = ({ experts }: Props) => {
                       alt="Avatar"
                       width={50}
                       height={50}
-                      style={{ objectPosition: "center" }}
                     />
                   </div>
 
@@ -58,7 +58,7 @@ export const ExpertsList = ({ experts }: Props) => {
                           ★
                         </span>
                         <span className="text-xs">
-                          {avgRate} ({owned_rates_count} відгуків)
+                          {avgRate} ({owned_rates_count} {t("reviews")})
                         </span>
                       </div>
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -36,18 +34,18 @@ const EXPERIENCE = [
 ];
 
 export const ExpertProfile = ({ expert }: Props) => {
-  const t = useTranslations("Home.expertPage");
+  const t = useTranslations("Home");
   const { average_rate, locations, services, fullname, uuid, created_at } =
     expert;
 
   const roundRating = Math.round(average_rate);
 
   const expertLocations =
-    locations.map((l) => l.name).join(", ") || "Немає локації...";
+    locations.map((l) => l.name).join(", ") || t("other.noLocation");
   const expertServices =
-    services.map((s) => s.name).join(", ") || "Немає послуг...";
+    services.map((s) => s.name).join(", ") || t("other.noService");
 
-  const joinedDate = formatDate(created_at, t("locale"));
+  const joinedDate = formatDate(created_at, t("expertPage.locale"));
 
   return (
     <div className="mt-14 px-20 desktopEnd:px-4">
@@ -112,7 +110,7 @@ export const ExpertProfile = ({ expert }: Props) => {
       </div>
 
       <div>
-        <div className="mb-8 text-2xl font-bold">{t("info")}</div>
+        <div className="mb-8 text-2xl font-bold">{t("expertPage.info")}</div>
         <p className="mb-6">
           Налаштування контекстної реклами Google Adwords; Збір та оптимізація
           семантичного ядра; Якісне опрацювання ключових запитів; Автоматизація
@@ -123,24 +121,26 @@ export const ExpertProfile = ({ expert }: Props) => {
 
         <div className="mb-14 flex max-w-[342px] flex-col gap-3">
           <div className="flex justify-between">
-            <span className="text-[#828282]">{t("email")}</span>
+            <span className="text-[#828282]">{t("expertPage.email")}</span>
             <span>******************</span>
           </div>
 
           <div className="flex justify-between">
-            <span className="text-[#828282]">{t("phone")}</span>
+            <span className="text-[#828282]">{t("expertPage.phone")}</span>
             <span>*************</span>
           </div>
 
           <div className="flex justify-between">
-            <span className="text-[#828282]">{t("joined")}</span>
+            <span className="text-[#828282]">{t("expertPage.joined")}</span>
             <span>{joinedDate}</span>
           </div>
         </div>
       </div>
 
       <div className="max-w-[344px]">
-        <div className="mb-8 text-2xl font-bold">{t("experience")}</div>
+        <div className="mb-8 text-2xl font-bold">
+          {t("expertPage.experience")}
+        </div>
 
         {EXPERIENCE.map((e) => (
           <div key={e.id} className="mb-6 flex flex-col gap-2">

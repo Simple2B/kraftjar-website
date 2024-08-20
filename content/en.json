@@ -92,7 +92,7 @@
       "email": "Email",
       "phone": "Phone",
       "joined": "Joined",
-      "locale": "uk-UA",
+      "locale": "en-GB",
       "experience": "Experience & Certificates"
     },
     "footer": {
@@ -120,6 +120,11 @@
     "modal": {
       "title": "Offer a job to an expert",
       "button": "Offer a job"
+    },
+    "other": {
+      "noLocation": "All Ukraine",
+      "noService": "Select service",
+      "reviews": "reviews"
     }
   }
 }

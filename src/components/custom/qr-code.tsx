@@ -11,12 +11,10 @@ export const QRCodeWrapper = ({ expertUUID }: Props) => {
 
   return (
     <>
-      <div style={{ background: "white", padding: "16px" }}>
+      <div className="p-4">
         <QRCode
           value={`https://stage.website.kraftjar.net/${locale}/expert?uuid=${expertUUID}`}
           size={120}
-          // Almost impossible to scan with this color
-          // fgColor="#FFBB02"
         />
       </div>
 
