@@ -20,7 +20,6 @@ export const ExpertsList = ({ users }: Props) => {
         <Fragment key={user.id}>
           <Link
             href={`/expert/?uuid=${user.uuid}`}
-            onClick={() => console.log(user.fullname)}
             className="flex cursor-pointer select-none items-center justify-between py-8 transition-colors hover:bg-grayLight desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start"
           >
             <div className="flex gap-6 desktopEnd:mb-6">
@@ -51,25 +50,22 @@ export const ExpertsList = ({ users }: Props) => {
                   <div className="flex gap-2">
                     <span className="text-xs">•</span>
                     <span className="text-xs">
-                      {user.services.map((s) => s.name).join(", ") ||
-                        "Немає... Чому?"}
+                      {user.services.map((s) => s.name).join(", ")}
                     </span>
                   </div>
 
                   <div className="flex gap-2">
                     <span className="text-xs">•</span>
                     <span className="text-xs">
-                      {user.locations.map((l) => l.name).join(", ")}
+                      {user.locations.map((l) => l.name).join(", ") ||
+                        "Немає локації..."}
                     </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <Modal
-              modalTitle="Запропонувати роботу фахівцеві"
-              buttonTitle="Запропонувати роботу"
-            >
+            <Modal>
               <div className="flex flex-col items-center text-center">
                 <QRCodeWrapper expertUUID={user.uuid} />
               </div>

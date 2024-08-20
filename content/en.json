@@ -83,8 +83,17 @@
         }
       }
     },
+    "expertsListPage": {
+      "title": "Top Experts in this category",
+      "notFound": "Unfortunately, there are no experts in this category"
+    },
     "expertPage": {
-      "locale": "en-GB"
+      "info": "About the expert",
+      "email": "Email",
+      "phone": "Phone",
+      "joined": "Joined",
+      "locale": "uk-UA",
+      "experience": "Experience & Certificates"
     },
     "footer": {
       "label": "Kraftjar",
@@ -104,6 +113,13 @@
     "notFound": {
       "description": "Unfortunately, we couldn't find the page you were looking for. It may have been deleted, changed, or never existed.",
       "button": "Go to home"
+    },
+    "qrCode": {
+      "subTitle": "Scan the QR to offer a job to en expert"
+    },
+    "modal": {
+      "title": "Offer a job to an expert",
+      "button": "Offer a job"
     }
   }
 }

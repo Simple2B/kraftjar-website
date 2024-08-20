@@ -1,21 +1,21 @@
 "use client";
 
 import { useRouter } from "@/navigation";
-import { useDebounce } from "./useDebounce";
+import { useDebounce } from "../../hooks/useDebounce";
 import Image from "next/image";
 
-import type { PublicUsersSearchOut } from "@/orval_api/model";
-import { ExpertsList } from "./experts-list";
+import type { UserSearchOut } from "@/orval_api/model";
 
 type Props = {
-  experts: PublicUsersSearchOut;
+  experts?: UserSearchOut[];
   query: string;
+  children?: React.ReactNode;
 };
 
 // Art, Low, ENT/ЛОР
 const MIN_CHARACTERS = 2;
 
-export const Experts = ({ experts, query }: Props) => {
+export const Experts = ({ query, children }: Props) => {
   const router = useRouter();
 
   const { debounce } = useDebounce((value: string) => {
@@ -68,13 +68,7 @@ export const Experts = ({ experts, query }: Props) => {
         </button>
       </div>
 
-      <h2 className="mb-8">Топ Фахівці в цій категорії</h2>
-
-      {!!experts.top_users?.length ? (
-        <ExpertsList users={experts.top_users} />
-      ) : (
-        <div>За вашим запитом нічого не знайдено</div>
-      )}
+      {children}
     </div>
   );
 };

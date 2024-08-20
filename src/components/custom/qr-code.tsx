@@ -1,4 +1,4 @@
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import QRCode from "react-qr-code";
 
 type Props = {
@@ -6,6 +6,7 @@ type Props = {
 };
 
 export const QRCodeWrapper = ({ expertUUID }: Props) => {
+  const t = useTranslations("Home.qrCode");
   const locale = useLocale();
 
   return (
@@ -19,9 +20,7 @@ export const QRCodeWrapper = ({ expertUUID }: Props) => {
         />
       </div>
 
-      <span className="mb-6 text-center text-xs">
-        Відскануйте QR, щоб запропонувати роботу фахівцю
-      </span>
+      <span className="mb-6 text-center text-xs">{t("subTitle")}</span>
     </>
   );
 };

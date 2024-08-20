@@ -1,35 +1,43 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "@/navigation";
+import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
+import { cn } from "@/lib/utils";
 
 type Option = {
   code: string;
   label: string;
 };
 
-const options: Option[] = [
+const OPTIONS: Option[] = [
   { code: "ua", label: "Укр" },
   { code: "en", label: "Eng" },
 ];
 
 export const LanguageSwitcher = () => {
   const router = useRouter();
-  const pathname = usePathname();
   const locale = useLocale();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const setOption = (option: Option) => {
     if (locale === option.code) {
       return;
     }
 
-    router.push(pathname, { locale: option.code });
+    let path = pathname;
+
+    if (searchParams.toString()) {
+      path = path + `?${searchParams.toString()}`;
+    }
+
+    router.push(path, { locale: option.code });
   };
 
   return (
     <div className="flex">
-      {options.map((option) => (
+      {OPTIONS.map((option) => (
         <div
           key={option.code}
           className={cn(
