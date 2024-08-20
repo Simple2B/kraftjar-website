@@ -3,7 +3,6 @@ import { Play } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { MainLayout } from "@/components/layout/main-layout";
-import { cn } from "@/lib/utils";
 
 type Props = {
   children: React.ReactNode;
@@ -34,9 +33,7 @@ export default function RootLayout({
 }: Readonly<Props>) {
   return (
     <html lang={locale}>
-      <body
-        className={cn(inter.className, "mx-auto min-h-screen max-w-maxDesktop")}
-      >
+      <body className={inter.className}>
         <LanguageProvider>
           <MainLayout>{children}</MainLayout>
         </LanguageProvider>

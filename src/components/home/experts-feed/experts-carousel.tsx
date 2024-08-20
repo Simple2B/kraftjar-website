@@ -77,7 +77,6 @@ export const ExpertsCarousel = () => {
                       alt="Avatar"
                       width={50}
                       height={50}
-                      style={{ objectPosition: "center" }}
                     />
                   </div>
 
