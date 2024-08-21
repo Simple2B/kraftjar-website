@@ -1,13 +1,13 @@
 name: Stage build and deploy
 
-on:
-  push:
-    branches:
-      - develop
 # on:
 #   push:
-#     tags:
-#       - "v*"
+#     branches:
+#       - develop
+on:
+  push:
+    tags:
+      - "v*"
 
 env:
   DOCKER_LOGIN: simple2b

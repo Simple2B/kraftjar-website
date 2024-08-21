@@ -6,6 +6,7 @@ import { Experts } from "@/components/experts/experts";
 import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
+import { backendURL } from "@/lib/constants";
 
 export default async function SearchExpertsPage({
   searchParams,
@@ -19,17 +20,15 @@ export default async function SearchExpertsPage({
   const t = await getTranslations("Home.expertsListPage");
   const { aPIPublicSearchUsers } = getUsers();
 
+  const body = {
+    lang: "ua",
+    selected_locations: [],
+    query: query,
+  };
+
   const {
     data: { top_users },
-  } = await aPIPublicSearchUsers(
-    {
-      lang: "ua",
-      selected_locations: [],
-      query: query,
-    },
-    {},
-    { baseURL: process.env.API_URL },
-  );
+  } = await aPIPublicSearchUsers(body, {}, backendURL);
 
   return (
     <>
