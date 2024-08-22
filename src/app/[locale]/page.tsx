@@ -22,10 +22,10 @@ const COMPONENTS = [
 ];
 
 export default async function Home() {
-  const { aPIGetJobsByLocations } = getJobs();
+  const { aPIGetPublicJobStatistics } = getJobs();
   const {
     data: { statistics },
-  } = await aPIGetJobsByLocations(backendURL);
+  } = await aPIGetPublicJobStatistics(backendURL);
 
   return (
     <main className="flex flex-col items-center">

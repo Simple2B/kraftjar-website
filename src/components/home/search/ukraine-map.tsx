@@ -51,8 +51,6 @@ export const UkraineMap = ({ statistics }: Props) => {
 
   useClickOutside(mapRef, reset);
 
-  console.log(statistics);
-
   return (
     <svg
       width="805"
