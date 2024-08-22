@@ -4,15 +4,15 @@ import { useRouter } from "@/navigation";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import type { PropsWithChildren } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 
 import { Button } from "@/components/custom/button";
-import { UkraineMap } from "./ukraine-map";
 import { cn } from "@/lib/utils";
 
-export const SearchBlock = () => {
+export const SearchBlock = ({ children }: PropsWithChildren) => {
   const router = useRouter();
   const t = useTranslations("Home.search");
 
@@ -66,7 +66,7 @@ export const SearchBlock = () => {
         </form>
       </div>
 
-      <UkraineMap />
+      {children}
     </div>
   );
 };

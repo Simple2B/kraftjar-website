@@ -1,5 +1,9 @@
+import { getJobs } from "@/orval_api/jobs/jobs";
+import { backendURL } from "@/lib/constants";
+
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
+import { UkraineMap } from "@/components/home/search/ukraine-map";
 import { Categories } from "@/components/home/categories";
 import { Advantages } from "@/components/home/advantages";
 import { AboutApp } from "@/components/home/about-app";
@@ -17,11 +21,19 @@ const COMPONENTS = [
   { id: 6, component: <Faq /> },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const { aPIGetJobsByLocations } = getJobs();
+  const {
+    data: { statistics },
+  } = await aPIGetJobsByLocations(backendURL);
+
   return (
     <main className="flex flex-col items-center">
       <HeroBlock />
-      <SearchBlock />
+
+      <SearchBlock>
+        <UkraineMap statistics={statistics} />
+      </SearchBlock>
 
       {COMPONENTS.map(({ id, component }) => (
         <RevealOnScroll key={id}>{component}</RevealOnScroll>

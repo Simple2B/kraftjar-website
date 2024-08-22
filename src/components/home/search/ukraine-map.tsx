@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+import type { PublicJobListStatistics } from "@/orval_api/model";
 import {
   districtsList,
   showBottom,
@@ -20,10 +21,11 @@ import { cn } from "@/lib/utils";
 
 type EventType = React.MouseEvent<SVGPathElement, MouseEvent>;
 
-const ANNOUNCEMENT_VALUE = 56;
-const STRENGTH_VALUE = 88;
+type Props = {
+  statistics: PublicJobListStatistics;
+};
 
-export const UkraineMap = () => {
+export const UkraineMap = ({ statistics }: Props) => {
   const t = useTranslations("Home.search.map");
 
   const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -49,6 +51,8 @@ export const UkraineMap = () => {
 
   useClickOutside(mapRef, reset);
 
+  console.log(statistics);
+
   return (
     <svg
       width="805"
@@ -62,6 +66,10 @@ export const UkraineMap = () => {
       {districtsList.map((district) => {
         const isDistrictSelected = selectedDistrict === district.id;
 
+        const jobCounter = statistics[district.backendId]?.jobs_count || 0;
+        const expertsCounter =
+          statistics[district.backendId]?.experts_count || 0;
+
         return (
           <Popover open={isDistrictSelected} key={district.id}>
             <PopoverTrigger asChild={true}>
@@ -74,7 +82,7 @@ export const UkraineMap = () => {
                 strokeLinejoin="round"
                 d={district.d}
                 className={cn(
-                  "hover:fill-yellowMain fill-grayDark cursor-pointer",
+                  "cursor-pointer fill-grayDark hover:fill-yellowMain",
                   isDistrictSelected && "fill-blueMain hover:fill-blueMain",
                 )}
               />
@@ -99,7 +107,7 @@ export const UkraineMap = () => {
                     height={56}
                   />
                   <span className="text-xs">
-                    {ANNOUNCEMENT_VALUE} {t("announcement")}
+                    {jobCounter} {t("announcement")}
                   </span>
                 </div>
 
@@ -111,7 +119,7 @@ export const UkraineMap = () => {
                     height={56}
                   />
                   <span className="text-xs">
-                    {STRENGTH_VALUE} {t("strength")}
+                    {expertsCounter} {t("strength")}
                   </span>
                 </div>
               </div>
