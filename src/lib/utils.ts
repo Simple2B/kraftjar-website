@@ -1,3 +1,4 @@
+import type { LocationStrings, Service } from "@/orval_api/model";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -18,4 +19,15 @@ export function formatDate(createdAt: string, locale: string) {
   const formattedDate = new Intl.DateTimeFormat(locale, options).format(date);
 
   return formattedDate;
+}
+export function formatUsersData(
+  locations: LocationStrings[],
+  services: Service[],
+  defaultL: string,
+  defaultS: string,
+) {
+  const expertLocations = locations.map((l) => l.name).join(", ") || defaultL;
+  const expertServices = services.map((s) => s.name).join(", ") || defaultS;
+
+  return { expertLocations, expertServices };
 }

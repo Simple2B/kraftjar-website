@@ -1,7 +1,7 @@
+import { PropsWithChildren } from "react";
 import { useTranslations } from "next-intl";
-import { ExpertsCarousel } from "./experts-carousel";
 
-export const ExpertsFeed = () => {
+export const ExpertsFeed = ({ children }: PropsWithChildren) => {
   const t = useTranslations("Home.expertsFeed");
 
   return (
@@ -12,7 +12,7 @@ export const ExpertsFeed = () => {
         <h2 className="text-grayLight">{t("title")}</h2>
       </div>
 
-      <ExpertsCarousel />
+      {children}
     </div>
   );
 };
