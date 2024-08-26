@@ -11,7 +11,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import type { PublicJobListStatistics } from "@/orval_api/model";
+import type { PublicJobDictStatistics } from "@/orval_api/model";
 import {
   districtsList,
   showBottom,
@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 type EventType = React.MouseEvent<SVGPathElement, MouseEvent>;
 
 type Props = {
-  statistics: PublicJobListStatistics;
+  statistics: PublicJobDictStatistics;
 };
 
 export const UkraineMap = ({ statistics }: Props) => {
