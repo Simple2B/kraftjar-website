@@ -7,6 +7,7 @@ import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
 import { backendURL } from "@/lib/constants";
+import { Language } from "@/orval_api/model";
 
 export default async function SearchExpertsPage({
   searchParams,
@@ -21,7 +22,7 @@ export default async function SearchExpertsPage({
   const { aPIPublicSearchUsers } = getUsers();
 
   const body = {
-    lang: "ua",
+    lang: Language.ua,
     selected_locations: [],
     query: query,
   };

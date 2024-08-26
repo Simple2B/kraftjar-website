@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
+import { MapFetchWrapper } from "@/components/home/search/map-fetch-wrapper";
 import { Categories } from "@/components/home/categories";
 import { Advantages } from "@/components/home/advantages";
 import { AboutApp } from "@/components/home/about-app";
@@ -17,11 +19,16 @@ const COMPONENTS = [
   { id: 6, component: <Faq /> },
 ];
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="flex flex-col items-center">
       <HeroBlock />
-      <SearchBlock />
+
+      <SearchBlock>
+        <Suspense fallback={<div>Loading...</div>}>
+          <MapFetchWrapper />
+        </Suspense>
+      </SearchBlock>
 
       {COMPONENTS.map(({ id, component }) => (
         <RevealOnScroll key={id}>{component}</RevealOnScroll>
