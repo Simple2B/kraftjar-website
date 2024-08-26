@@ -1,6 +1,9 @@
+import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+
+import type { LocationStrings, Service } from "@/orval_api/model";
+import { cn, formatUsersData } from "@/lib/utils";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Modal } from "@/components/custom/modal";
 import { QRCodeWrapper } from "@/components/custom/qr-code";
@@ -14,8 +17,8 @@ type Props = {
   average_rate: number;
   fullname: string;
   owned_rates_count: number;
-  expertServices: string;
-  expertLocations: string;
+  services: LocationStrings[];
+  locations: Service[];
 };
 
 export const CarouselCard = ({
@@ -24,9 +27,18 @@ export const CarouselCard = ({
   average_rate,
   fullname,
   owned_rates_count,
-  expertServices,
-  expertLocations,
+  services,
+  locations,
 }: Props) => {
+  const t = useTranslations("Home");
+
+  const { expertServices, expertLocations } = formatUsersData(
+    locations,
+    services,
+    t("other.noLocation"),
+    t("other.noService"),
+  );
+
   return (
     <CarouselItem className={"relative h-[184px] basis-[298px]"}>
       <Link
@@ -70,7 +82,8 @@ export const CarouselCard = ({
                     ★
                   </span>
                   <span className="text-xs text-white">
-                    {average_rate.toFixed(1)} ({owned_rates_count} відгуків)
+                    {average_rate.toFixed(1)} ({owned_rates_count}{" "}
+                    {t("other.reviews")})
                   </span>
                 </div>
               </div>

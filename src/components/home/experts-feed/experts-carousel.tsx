@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import type { UserSearchOut } from "@/orval_api/model";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -9,7 +8,6 @@ import {
   CarouselOptions,
   CarouselPlugin,
 } from "@/components/ui/carousel";
-import { formatUsersData } from "@/lib/utils";
 import { CarouselCard } from "./carousel-card";
 
 const CAROUSEL_PLUGINS: CarouselPlugin = [
@@ -30,8 +28,6 @@ type Props = {
 };
 
 export const ExpertsCarousel = ({ experts }: Props) => {
-  const t = useTranslations("Home");
-
   return (
     <Carousel
       plugins={CAROUSEL_PLUGINS}
@@ -39,40 +35,18 @@ export const ExpertsCarousel = ({ experts }: Props) => {
       opts={CAROUSEL_OPTS}
     >
       <CarouselContent className="gap-3 pl-3">
-        {experts.map(
-          (
-            {
-              locations,
-              services,
-              id,
-              fullname,
-              average_rate,
-              owned_rates_count,
-              uuid,
-            },
-            index,
-          ) => {
-            const { expertServices, expertLocations } = formatUsersData(
-              locations,
-              services,
-              t("other.noLocation"),
-              t("other.noService"),
-            );
-
-            return (
-              <CarouselCard
-                key={id}
-                index={index}
-                uuid={uuid}
-                average_rate={average_rate}
-                fullname={fullname}
-                owned_rates_count={owned_rates_count}
-                expertServices={expertServices}
-                expertLocations={expertLocations}
-              />
-            );
-          },
-        )}
+        {experts.map((expert, index) => (
+          <CarouselCard
+            key={expert.id}
+            index={index}
+            uuid={expert.uuid}
+            average_rate={expert.average_rate}
+            fullname={expert.fullname}
+            owned_rates_count={expert.owned_rates_count}
+            services={expert.services}
+            locations={expert.locations}
+          />
+        ))}
       </CarouselContent>
     </Carousel>
   );
