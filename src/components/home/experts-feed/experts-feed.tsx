@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
 import { useTranslations } from "next-intl";
+import { ExpertsFetchWrapper } from "./experts-fetch-wrapper";
 
-export const ExpertsFeed = ({ children }: PropsWithChildren) => {
+export const ExpertsFeed = () => {
   const t = useTranslations("Home.expertsFeed");
 
   return (
@@ -12,7 +12,7 @@ export const ExpertsFeed = ({ children }: PropsWithChildren) => {
         <h2 className="text-grayLight">{t("title")}</h2>
       </div>
 
-      {children}
+      <ExpertsFetchWrapper />
     </div>
   );
 };
