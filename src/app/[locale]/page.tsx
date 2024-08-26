@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
 import { MapFetchWrapper } from "@/components/home/search/map-fetch-wrapper";
@@ -24,7 +25,9 @@ export default async function Home() {
       <HeroBlock />
 
       <SearchBlock>
-        <MapFetchWrapper />
+        <Suspense fallback={<div>Loading...</div>}>
+          <MapFetchWrapper />
+        </Suspense>
       </SearchBlock>
 
       {COMPONENTS.map(({ id, component }) => (

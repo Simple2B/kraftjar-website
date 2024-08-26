@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { ExpertsFetchWrapper } from "./experts-fetch-wrapper";
 
@@ -12,7 +13,9 @@ export const ExpertsFeed = () => {
         <h2 className="text-grayLight">{t("title")}</h2>
       </div>
 
-      <ExpertsFetchWrapper />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ExpertsFetchWrapper />
+      </Suspense>
     </div>
   );
 };
