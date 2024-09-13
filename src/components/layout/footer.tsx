@@ -70,21 +70,21 @@ export const Footer = () => {
             <div className="flex items-end gap-12 smDesktop:flex-col smDesktop:items-center">
               <div className="">
                 <div className="text-xl">{t("question")}:</div>
-                <Link className="text-xl" href="mailto:help@uakids.org">
-                  help@uakids.org
+                <Link className="text-xl" href="mailto:simple2b.info@gmail.com">
+                  simple2b.info@gmail.com
                 </Link>
               </div>
 
               <div className="">
                 <div className="text-xl">{t("co-operation")}:</div>
-                <Link className="text-xl" href="mailto:help@uakids.org">
-                  help@uakids.org
+                <Link className="text-xl" href="mailto:simple2b.info@gmail.com">
+                  simple2b.info@gmail.com
                 </Link>
               </div>
               <div className="">
                 <div className="text-xl">{t("media")}:</div>
-                <Link className="text-xl" href="mailto:help@uakids.org">
-                  help@uakids.org
+                <Link className="text-xl" href="mailto:simple2b.info@gmail.com">
+                  simple2b.info@gmail.com
                 </Link>
               </div>
             </div>
@@ -104,7 +104,7 @@ export const Footer = () => {
           <div className="flex gap-8 text-sm text-[#FFFFFF66] underline underline-offset-2">
             <Link href="">{t("offer")}</Link>
 
-            <Link href="">{t("privacy")}</Link>
+            <Link href="/privacy-policy">{t("privacy")}</Link>
           </div>
         </div>
       </div>
