@@ -16,7 +16,7 @@ env:
 
 jobs:
   test:
-    runs-on: Linux
+    runs-on: s2b
     strategy:
       matrix:
         node-version: [20.x]
@@ -37,7 +37,7 @@ jobs:
       - name: check lint
         run: yarn lint
   build:
-    runs-on: Linux
+    runs-on: s2b
     needs: test
     steps:
       - name: Checkout
@@ -68,7 +68,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
   deploy:
-    runs-on: Linux
+    runs-on: s2b
     needs: build
     steps:
       - name: Checkout
