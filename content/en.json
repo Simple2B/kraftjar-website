@@ -126,5 +126,55 @@
       "noService": "Select service",
       "reviews": "reviews"
     }
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "description": "At Kraftjar, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our mobile application.",
+    "bottomText": "By using Kraftjar, you agree to the terms of this Privacy Policy.",
+    "list1": {
+      "title": "Information We Collect",
+      "text": "We collect the following types of information:",
+      "point1": "Personal Information: When you register, we may collect personal data such as your name, email address, phone number, and location.",
+      "point2": "Usage Information: We collect data on how you interact with our application, such as searches, orders, and other activities.",
+      "point3": "Technical Information: We gather device information, such as IP address, device type, operating system, and app version."
+    },
+    "list2": {
+      "title": "How We Use Your Information",
+      "text": "We use your data to:",
+      "point1": "Connect you with professionals or potential clients.",
+      "point2": "Facilitate and personalize your experience within the app.",
+      "point3": "Improve the app functionality, troubleshoot issues, and enhance user experience.",
+      "point4": "Send you notifications regarding your activity or updates related to the service.",
+      "point5": "Comply with legal obligations and resolve disputes."
+    },
+    "list3": {
+      "title": "Sharing Your Information",
+      "text": "We do not sell your personal information. However, we may share data in the following situations:",
+      "point1": "With service providers: We may share your information with third-party service providers to perform functions such as payment processing, app development, and customer support.",
+      "point2": "Legal purposes: We may share your information if required by law or to protect the rights and safety of our users."
+    },
+    "list4": {
+      "title": "Data Security",
+      "text": "We take your security seriously and implement appropriate technical and organizational measures to protect your personal data from unauthorized access, loss, or misuse."
+    },
+    "list5": {
+      "title": "Your Rights",
+      "text": "You have the right to:",
+      "point1": "Access and update your personal data.",
+      "point2": "Request deletion of your data.",
+      "point3": "Object to the processing of your data in certain circumstances."
+    },
+    "list6": {
+      "title": "Children's Privacy",
+      "text": "Kraftjar is not intended for users under the age of 16, and we do not knowingly collect personal data from children."
+    },
+    "list7": {
+      "title": "Changes to This Privacy Policy",
+      "text": "We may update this Privacy Policy from time to time. You will be notified of any significant changes through the app or via email."
+    },
+    "list8": {
+      "title": "Contact Us",
+      "text": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:"
+    }
   }
 }
