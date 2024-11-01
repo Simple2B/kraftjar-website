@@ -7,7 +7,6 @@ import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
 import { backendURL } from "@/lib/constants";
-import { Language } from "@/orval_api/model";
 
 export default async function SearchExpertsPage({
   searchParams,
@@ -19,25 +18,19 @@ export default async function SearchExpertsPage({
   }
 
   const t = await getTranslations("Home.expertsListPage");
-  const { aPIPublicSearchUsers } = getUsers();
-
-  const body = {
-    lang: Language.ua,
-    selected_locations: [],
-    query: query,
-  };
+  const { aPIGetUsers } = getUsers();
 
   const {
-    data: { top_users },
-  } = await aPIPublicSearchUsers(body, {}, backendURL);
+    data: { items },
+  } = await aPIGetUsers({ query: query }, backendURL);
 
   return (
     <>
       <Experts query={query}>
         <h2 className="mb-8">{t("title")}</h2>
 
-        {!!top_users?.length ? (
-          <ExpertsList experts={top_users} />
+        {!!items?.length ? (
+          <ExpertsList experts={items} />
         ) : (
           <div>{t("notFound")}</div>
         )}

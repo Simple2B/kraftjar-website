@@ -23,11 +23,11 @@ export const ExpertsList = ({ experts }: Props) => {
           services,
           id,
           uuid,
-          average_rate,
+          receiver_average_rate,
           fullname,
           owned_rates_count,
         }) => {
-          const avgRate = average_rate.toFixed(1);
+          const avgRate = receiver_average_rate.toFixed(1);
           const expertLocations =
             locations.map((l) => l.name).join(", ") || t("noLocation");
           const expertServices =
