@@ -13,8 +13,8 @@ export default async function SearchExpertsPage({
     query = searchParams.uuid;
   }
 
-  const { aPIGetPublicUserProfile } = getUsers();
-  const { data } = await aPIGetPublicUserProfile(query, {}, backendURL);
+  const { aPIGetUserProfile } = getUsers();
+  const { data } = await aPIGetUserProfile(query, {}, backendURL);
 
   return (
     <>
