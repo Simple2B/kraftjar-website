@@ -15,16 +15,36 @@ const inter = Play({
 });
 
 export const metadata: Metadata = {
+  keywords: [
+    "Kraftjar",
+    "фахівці",
+    "послуги",
+    "Крафтяр",
+    "знайти фахівця",
+    "сантехнік",
+  ],
   title: {
     template: "%s | Kraftjar - знаходьте найкращих фахівців для своїх послуг",
     default: "Kraftjar - знаходьте найкращих фахівців для своїх послуг",
   },
   description:
     "Kraftjar is a platform that helps you to find the best professionals for your services.",
-  openGraph: {},
-  twitter: {},
-  robots: {},
+  openGraph: {
+    type: "website",
+    description:
+      "Крафтяр - ваш надійний помічник у пошуку фахівців у будь-яких сферах або знаходженні нових завдань.",
+    images: [
+      "https://stage.website.kraftjar.net/static/phone/iPhone-15-Pro.png",
+    ],
+  },
   metadataBase: new URL("https://stage.website.kraftjar.net"),
+  alternates: {
+    canonical: "https://stage.website.kraftjar.net/uk",
+    languages: {
+      uk: "https://stage.website.kraftjar.net/uk",
+      en: "https://stage.website.kraftjar.net/en",
+    },
+  },
 };
 
 export default function RootLayout({

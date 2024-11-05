@@ -11,7 +11,7 @@ type Option = {
 };
 
 const OPTIONS: Option[] = [
-  { code: "ua", label: "Укр" },
+  { code: "uk", label: "Укр" },
   { code: "en", label: "Eng" },
 ];
 
