@@ -8,6 +8,21 @@ import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
 import { backendURL } from "@/lib/constants";
 
+export async function generateMetadata({ searchParams }: SearchParamsProps) {
+  let query = "";
+
+  if (!!searchParams && typeof searchParams.name === "string") {
+    query = searchParams.name;
+  }
+
+  return {
+    title: query,
+    openGraph: {
+      title: query,
+    },
+  };
+}
+
 export default async function SearchExpertsPage({
   searchParams,
 }: SearchParamsProps) {

@@ -15,6 +15,7 @@ export async function generateMetadata({ searchParams }: SearchParamsProps) {
   const { data } = await aPIGetUserProfile(query, {}, backendURL);
 
   return {
+    title: data.fullname,
     openGraph: {
       title: data.fullname,
       description: data.description,

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     default: "Kraftjar - знаходьте найкращих фахівців для своїх послуг",
   },
   description:
-    "Kraftjar is a platform that helps you to find the best professionals for your services.",
+    "Крафтяр - ваш надійний помічник у пошуку фахівців у будь-яких сферах або знаходженні нових завдань.",
   openGraph: {
     type: "website",
     description:
