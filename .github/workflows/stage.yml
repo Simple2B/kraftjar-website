@@ -37,7 +37,7 @@ jobs:
       - name: check lint
         run: yarn lint
   build:
-    runs-on: s2b
+    runs-on: genie-portal
     needs: test
     steps:
       - name: Checkout
