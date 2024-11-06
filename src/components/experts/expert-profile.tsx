@@ -15,7 +15,7 @@ type Props = {
 
 const TOTAL_STARS = 5;
 const STAR_LIST = [...Array(TOTAL_STARS)];
-const DEFAULT_AVATAR = "/static/default-avatar.png";
+export const DEFAULT_AVATAR = "/static/default-avatar.png";
 
 const EXPERIENCE = [
   {
@@ -138,7 +138,8 @@ export const ExpertProfile = ({ expert }: Props) => {
         </div>
       </div>
 
-      <div className="max-w-[344px]">
+      {/* Hide for now */}
+      {/* <div className="max-w-[344px]">
         <div className="mb-8 text-2xl font-bold">
           {t("expertPage.experience")}
         </div>
@@ -154,7 +155,7 @@ export const ExpertProfile = ({ expert }: Props) => {
             )}
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

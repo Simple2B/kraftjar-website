@@ -1,4 +1,7 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { Link } from "@/navigation";
 import Image from "next/image";
 
@@ -7,8 +10,8 @@ import { cn, formatUsersData } from "@/lib/utils";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Modal } from "@/components/custom/modal";
 import { QRCodeWrapper } from "@/components/custom/qr-code";
+import { twMerge } from "tailwind-merge";
 
-const USER_ACTIVITY = "Online";
 const AVATAR = "/static/girl.svg";
 
 type Props = {
@@ -19,6 +22,7 @@ type Props = {
   owned_rates_count: number;
   services: LocationStrings[];
   locations: Service[];
+  createdAt: string;
 };
 
 export const CarouselCard = ({
@@ -29,7 +33,9 @@ export const CarouselCard = ({
   owned_rates_count,
   services,
   locations,
+  createdAt,
 }: Props) => {
+  const { isCopied, copyToClipboard } = useCopyToClipboard();
   const t = useTranslations("Home");
 
   const { expertServices, expertLocations } = formatUsersData(
@@ -39,16 +45,38 @@ export const CarouselCard = ({
     t("other.noService"),
   );
 
+  const handleCopy = () => {
+    if (isCopied) {
+      return;
+    }
+
+    copyToClipboard(window.location.href + `/expert?uuid=${uuid}`);
+  };
+
   return (
     <CarouselItem className={"relative h-[184px] basis-[298px]"}>
-      <Link
-        href="#"
+      <button
+        onClick={handleCopy}
+        title="Copy link"
         className={
           "absolute right-[-8px] top-[-6px] flex h-10 w-10 items-center justify-center rounded-full border border-[#FFFFFF33] bg-blackMain transition-colors hover:bg-[#FFFFFF33]"
         }
       >
-        <Image src="/static/share.svg" alt="Share" width={20} height={20} />
-      </Link>
+        <Image
+          className={twMerge(!isCopied && "hidden")}
+          src="/static/check.svg"
+          alt="Copied"
+          width={40}
+          height={40}
+        />
+        <Image
+          className={twMerge(isCopied && "hidden")}
+          src="/static/share.svg"
+          alt="Share"
+          width={20}
+          height={20}
+        />
+      </button>
       <Link href={`/expert/?uuid=${uuid}`}>
         <div
           className={cn(
@@ -57,8 +85,8 @@ export const CarouselCard = ({
               "border-yellowMain bg-[linear-gradient(0.06deg,#F2B705_0.05%,#FFDB70_99.95%)]",
           )}
         >
-          <div className="y-[6px] mb-2 w-max rounded-3xl bg-[#FFFFFF33] px-[10px] text-[#FFFFFF99]">
-            {USER_ACTIVITY}
+          <div className="y-[6px] mb-2 w-max rounded-3xl bg-[#59565636] px-[10px] text-[#ffffffbd]">
+            {createdAt}
           </div>
 
           <div className="select-none">

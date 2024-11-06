@@ -7,6 +7,7 @@ import type { UserSearchOut } from "@/orval_api/model";
 import { Separator } from "../ui/separator";
 import { Modal } from "../custom/modal";
 import { QRCodeWrapper } from "../custom/qr-code";
+import { DEFAULT_AVATAR } from "./expert-profile";
 
 type Props = {
   experts: UserSearchOut[];
@@ -26,6 +27,7 @@ export const ExpertsList = ({ experts }: Props) => {
           receiver_average_rate,
           fullname,
           owned_rates_count,
+          avatar_url,
         }) => {
           const avgRate = receiver_average_rate.toFixed(1);
           const expertLocations =
@@ -40,12 +42,13 @@ export const ExpertsList = ({ experts }: Props) => {
                 className="flex cursor-pointer select-none items-center justify-between py-8 transition-colors hover:bg-grayLight desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start"
               >
                 <div className="flex gap-6 desktopEnd:mb-6">
-                  <div className="flex h-20 w-20 justify-center rounded-full shadow-avatarShadow">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full shadow-avatarShadow">
                     <Image
-                      src="/static/boy.svg"
+                      src={avatar_url || DEFAULT_AVATAR}
                       alt="Avatar"
-                      width={50}
-                      height={50}
+                      width={80}
+                      height={80}
+                      className="h-[80px] rounded-full object-cover"
                     />
                   </div>
 
