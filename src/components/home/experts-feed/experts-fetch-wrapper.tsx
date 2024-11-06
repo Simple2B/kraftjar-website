@@ -7,9 +7,11 @@ import { CarouselCard } from "./carousel-card";
 export async function ExpertsFetchWrapper() {
   const { aPIGetUsers } = getUsers();
 
+  const allUsersQuery = "";
+
   const {
     data: { items },
-  } = await aPIGetUsers({ query: "test" }, backendURL);
+  } = await aPIGetUsers({ query: allUsersQuery }, backendURL);
 
   return (
     <ExpertsCarousel>
