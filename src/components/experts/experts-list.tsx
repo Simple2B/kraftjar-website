@@ -17,7 +17,7 @@ export const ExpertsList = ({ experts }: Props) => {
   const t = useTranslations("Home.other");
 
   return (
-    <div>
+    <div className="mb-5">
       {experts.map(
         ({
           locations,

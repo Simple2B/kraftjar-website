@@ -4,18 +4,19 @@ import { useRouter } from "@/navigation";
 import { useDebounce } from "../../hooks/useDebounce";
 import Image from "next/image";
 
-import type { UserSearchOut } from "@/orval_api/model";
+import type { PageUserSearchOutSize, UserSearchOut } from "@/orval_api/model";
 
 type Props = {
   experts?: UserSearchOut[];
   query: string;
   children?: React.ReactNode;
+  pageSize: PageUserSearchOutSize;
 };
 
 // Art, Low, ENT/ЛОР
 const MIN_CHARACTERS = 2;
 
-export const Experts = ({ query, children }: Props) => {
+export const Experts = ({ query, children, pageSize }: Props) => {
   const router = useRouter();
 
   const { debounce } = useDebounce((value: string) => {
@@ -23,7 +24,7 @@ export const Experts = ({ query, children }: Props) => {
       return;
     }
 
-    router.push(`/search-experts?name=${value}`);
+    router.push(`/search-experts?name=${value}` + `&page=1&size=${pageSize}`);
   }, 500);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
