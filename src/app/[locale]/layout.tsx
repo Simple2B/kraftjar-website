@@ -33,16 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     description:
       "Крафтяр - ваш надійний помічник у пошуку фахівців у будь-яких сферах або знаходженні нових завдань.",
-    images: [
-      "https://stage.website.kraftjar.net/static/phone/iPhone-15-Pro.png",
-    ],
+    images: ["https://kraftjar.net/static/phone/iPhone-15-Pro.png"],
   },
-  metadataBase: new URL("https://stage.website.kraftjar.net"),
+  metadataBase: new URL("https://kraftjar.net"),
   alternates: {
-    canonical: "https://stage.website.kraftjar.net/uk",
+    canonical: "https://kraftjar.net/uk",
     languages: {
-      uk: "https://stage.website.kraftjar.net/uk",
-      en: "https://stage.website.kraftjar.net/en",
+      uk: "https://kraftjar.net/uk",
+      en: "https://kraftjar.net/en",
     },
   },
   robots: {

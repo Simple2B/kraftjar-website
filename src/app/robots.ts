@@ -8,8 +8,8 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [],
     },
     sitemap: [
-      "https://stage.website.kraftjar.net/uk/sitemap.xml",
-      "https://stage.website.kraftjar.net/en/sitemap.xml",
+      "https://kraftjar.net/uk/sitemap.xml",
+      "https://kraftjar.net/en/sitemap.xml",
     ],
   };
 }

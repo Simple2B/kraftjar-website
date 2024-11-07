@@ -13,7 +13,7 @@ export const QRCodeWrapper = ({ expertUUID }: Props) => {
     <>
       <div className="p-4">
         <QRCode
-          value={`https://stage.website.kraftjar.net/${locale}/expert?uuid=${expertUUID}`}
+          value={`https://kraftjar.net/${locale}/expert?uuid=${expertUUID}`}
           size={120}
         />
       </div>

@@ -2,7 +2,7 @@ import { backendURL } from "@/lib/constants";
 import { getUsers } from "@/orval_api/users/users";
 
 export default async function sitemap() {
-  const baseUrlUK = "https://stage.website.kraftjar.net/uk";
+  const baseUrlUK = "https://kraftjar.net/uk";
   const { aPIGetUsers } = getUsers();
 
   const {
