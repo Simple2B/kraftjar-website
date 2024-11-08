@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { HeroBlock } from "@/components/home/hero-block";
 import { SearchBlock } from "@/components/home/search/search-block";
 import { MapFetchWrapper } from "@/components/home/search/map-fetch-wrapper";
-import { Categories } from "@/components/home/categories";
+import { Services } from "@/components/home/services/services";
 import { Advantages } from "@/components/home/advantages";
 import { AboutApp } from "@/components/home/about-app";
 import { ExpertsFeed } from "@/components/home/experts-feed/experts-feed";
@@ -11,7 +11,7 @@ import { Faq } from "@/components/home/faq";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 
 const COMPONENTS = [
-  { id: 1, component: <Categories /> },
+  { id: 1, component: <Services /> },
   { id: 2, component: <Advantages /> },
   { id: 3, component: <AboutApp /> },
   { id: 4, component: <ExpertsFeed /> },
