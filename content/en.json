@@ -15,7 +15,7 @@
     "search": {
       "title": "What can I find?",
       "description": "We will change your approach to finding specialists and tasks in all areas. Download Kraftjar today and find answers to all your needs",
-      "placeholder": "What should be done?",
+      "placeholder": "eg. plumber",
       "button": "Find an expert",
       "map": {
         "announcement": "announcement",

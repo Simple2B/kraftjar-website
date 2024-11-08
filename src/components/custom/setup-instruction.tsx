@@ -30,7 +30,7 @@ export const SetupInstruction = ({ hideTitle }: Props) => {
   return (
     <div className="max-w-[660px] desktopEnd:px-4">
       {!hideTitle && <h2 className="mb-6">{t("instruction.title")}</h2>}
-      <p className="mb-8 desktopEnd:text-base">
+      <p className="mb-8 desktopEnd:mb-2 desktopEnd:text-base">
         {t("instruction.description")}
       </p>
 
@@ -39,7 +39,7 @@ export const SetupInstruction = ({ hideTitle }: Props) => {
           style={{
             gridTemplateRows: `repeat(${dataLength}, minmax(78px, 1fr))`,
           }}
-          className="mb-8 grid grid-flow-row auto-rows-max grid-cols-[max-content_1fr] items-center desktopEnd:gap-y-10"
+          className="mb-8 grid grid-flow-row auto-rows-max grid-cols-[max-content_1fr] items-center desktopEnd:mb-2 desktopEnd:gap-y-3"
         >
           {INSTRUCTIONS_STEPS.map((item, i) => {
             const isLastItem = i === dataLength - 1;

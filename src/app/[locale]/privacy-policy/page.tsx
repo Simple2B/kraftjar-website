@@ -80,8 +80,8 @@ export default function PrivacyPolicy() {
   ];
 
   return (
-    <div className="p-20">
-      <h1 className="mb-4">{t("title")}</h1>
+    <div className="p-20 desktopEnd:p-4">
+      <h1 className="mb-4 desktopEnd:text-4xl">{t("title")}</h1>
       <p className="mb-5">{t("description")}</p>
 
       {content.map((item) => (
