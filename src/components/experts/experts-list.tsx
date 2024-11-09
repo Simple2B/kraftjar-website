@@ -48,7 +48,7 @@ export const ExpertsList = ({ experts }: Props) => {
                       alt="Avatar"
                       width={80}
                       height={80}
-                      className="h-[80px] rounded-full object-cover"
+                      className="h-20 rounded-full object-cover"
                     />
                   </div>
 
