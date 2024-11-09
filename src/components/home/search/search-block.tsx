@@ -12,6 +12,7 @@ import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 import { Button } from "@/components/custom/button";
 import { cn } from "@/lib/utils";
 import { DEFAUL_PAGE_SIZE } from "@/lib/constants";
+import { OrderType, UsersOrderBy } from "@/orval_api/model";
 
 export const SearchBlock = ({ children }: PropsWithChildren) => {
   const router = useRouter();
@@ -28,7 +29,9 @@ export const SearchBlock = ({ children }: PropsWithChildren) => {
 
   const onSubmit = async (data: TypeSearchSchema) => {
     router.push(
-      "/search-experts/?name=" + data.name + `&page=1&size=${DEFAUL_PAGE_SIZE}`,
+      "/search-experts/?name=" +
+        data.name +
+        `&page=1&size=${DEFAUL_PAGE_SIZE}&order_type=${OrderType.desc}&order_by=${UsersOrderBy.average_rate}`,
     );
   };
 
