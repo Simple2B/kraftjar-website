@@ -16,10 +16,10 @@ const inter = Play({
 
 export const metadata: Metadata = {
   keywords: [
+    "Крафтяр",
     "Kraftjar",
     "фахівці",
     "послуги",
-    "Крафтяр",
     "знайти фахівця",
     "сантехнік",
   ],

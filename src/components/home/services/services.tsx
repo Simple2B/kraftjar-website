@@ -16,7 +16,7 @@ export const Services = () => {
       <p className="text-base">
         Більше послуг ви зможете знайти за <b className="underline">пошуком</b>{" "}
         вище або використавши наш{" "}
-        <Link className="text-blueMain underline" href="/#about">
+        <Link className="text-blueMain underline" href="/#how-to-start">
           Додаток
         </Link>
       </p>

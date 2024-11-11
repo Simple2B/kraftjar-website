@@ -3,7 +3,10 @@ import { SetupInstruction } from "../custom/setup-instruction";
 
 export const HowToStart = () => {
   return (
-    <div className="flex w-full items-center gap-14 desktopEnd:flex-col">
+    <div
+      id="how-to-start"
+      className="flex w-full items-center gap-14 desktopEnd:flex-col"
+    >
       <div className="h-[800px] max-w-[700px] bg-ellipse bg-left bg-no-repeat mobileMax:max-h-[538px] mobileMax:bg-cover mobileMax:bg-center desktopEnd:bg-ellipse-mobile mdDesktop:w-full smDesktopPart:bg-contain">
         <Image
           src="/static/phone/three-phones.png"

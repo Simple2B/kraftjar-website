@@ -6,7 +6,7 @@ import { Experts } from "@/components/experts/experts";
 import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
-import { backendURL, DEFAUL_PAGE_SIZE } from "@/lib/constants";
+import { backendURL, DEFAULT_PAGE_SIZE } from "@/lib/constants";
 import { ExpertsPagination } from "@/components/experts/experts-pagination";
 import { OrderType, UsersOrderBy } from "@/orval_api/model";
 
@@ -30,7 +30,7 @@ export default async function SearchExpertsPage({
 }: SearchParamsProps) {
   let query = "";
   let pageNumber = "1";
-  let pageSize = DEFAUL_PAGE_SIZE;
+  let pageSize = DEFAULT_PAGE_SIZE;
   let orderType: OrderType = OrderType.desc;
   let orderBy: UsersOrderBy = UsersOrderBy.average_rate;
 

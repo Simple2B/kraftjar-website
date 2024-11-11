@@ -2,7 +2,9 @@
  * @access For server side only.
  */
 export const backendURL = { baseURL: process.env.API_URL };
-export const DEFAUL_PAGE_SIZE = "10";
+
+export const DEFAULT_PAGE = 1;
+export const DEFAULT_PAGE_SIZE = "10";
 
 export const INSTRUCTIONS_STEPS = [
   {

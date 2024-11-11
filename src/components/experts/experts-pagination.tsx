@@ -15,7 +15,7 @@ import type {
   PageUserSearchOutSize,
   UsersOrderBy,
 } from "@/orval_api/model";
-import { getVisiblePages } from "@/lib/utils";
+import { formatURI, getVisiblePages, URIParams } from "@/lib/utils";
 
 const FIRST_PAGE = 1;
 const THREE_DOTS = "...";
@@ -37,18 +37,21 @@ export const ExpertsPagination = ({
   orderType,
   orderBy,
 }: Props) => {
-  const baseUri = "/search-experts/?name=" + `${query}`;
-  const sortingParams = `order_type=${orderType}&order_by=${orderBy}`;
+  const params: URIParams = {
+    query,
+    page: currentPage,
+    size: pageSize,
+    orderType,
+    orderBy,
+  };
 
   const prevPage =
     currentPage && currentPage !== FIRST_PAGE ? currentPage - 1 : FIRST_PAGE;
-  const prevPageLink =
-    baseUri + `&page=${prevPage}&size=${pageSize}&${sortingParams}`;
+  const prevPageLink = formatURI({ ...params, page: prevPage });
 
   const nextPage =
     currentPage && currentPage !== totalPages ? currentPage + 1 : currentPage;
-  const nextPageLink =
-    baseUri + `&page=${nextPage}&size=${pageSize}&${sortingParams}`;
+  const nextPageLink = formatURI({ ...params, page: nextPage });
 
   const pageButtonsList = getVisiblePages(currentPage, totalPages);
 
@@ -73,10 +76,7 @@ export const ExpertsPagination = ({
               {pageNumber === FIRST_PAGE && (
                 <PaginationItem>
                   <PaginationLink
-                    href={
-                      baseUri +
-                      `&page=${FIRST_PAGE}&size=${pageSize}&${sortingParams}`
-                    }
+                    href={formatURI({ ...params, page: FIRST_PAGE })}
                     isActive={isPageActive}
                   >
                     {FIRST_PAGE}
@@ -93,10 +93,7 @@ export const ExpertsPagination = ({
               {showPageButton && (
                 <PaginationItem>
                   <PaginationLink
-                    href={
-                      baseUri +
-                      `&page=${pageNumber}&size=${pageSize}&${sortingParams}`
-                    }
+                    href={formatURI({ ...params, page: pageNumber })}
                     isActive={isPageActive}
                   >
                     {pageNumber}
@@ -113,10 +110,7 @@ export const ExpertsPagination = ({
               {pageNumber === totalPages && (
                 <PaginationItem>
                   <PaginationLink
-                    href={
-                      baseUri +
-                      `&page=${totalPages}&size=${pageSize}&${sortingParams}`
-                    }
+                    href={formatURI({ ...params, page: totalPages })}
                     isActive={isPageActive}
                   >
                     {totalPages}

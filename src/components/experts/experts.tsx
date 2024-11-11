@@ -23,6 +23,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
+import { formatURI, URIParams } from "@/lib/utils";
+import { DEFAULT_PAGE } from "@/lib/constants";
 
 type Props = {
   experts?: UserSearchOut[];
@@ -38,38 +40,46 @@ type Props = {
 const MIN_CHARACTERS = 2;
 
 export const Experts = ({
-  query,
   children,
+  query,
+  currentPage,
   pageSize,
   orderType,
   orderBy,
-  currentPage,
 }: Props) => {
   const router = useRouter();
   const [currentOrderType, setCurrentOrderType] = useState(orderType);
   const [currentOrderBy, setCurrentOrderBy] = useState(orderBy);
 
-  const baseUri = `/search-experts?name=${query}&page=${currentPage}&size=${pageSize}`;
-
-  const handleOrderType = (value: OrderType) => {
-    setCurrentOrderType(value);
-    router.replace(`${baseUri}&order_type=${value}&order_by=${orderBy}`);
+  const params: URIParams = {
+    query,
+    page: currentPage,
+    size: pageSize,
+    orderType,
+    orderBy,
   };
 
-  const handleOrderBy = (value: UsersOrderBy) => {
-    setCurrentOrderBy(value);
-    router.replace(`${baseUri}&order_type=${orderType}&order_by=${value}`);
+  const handleOrderType = (orderType: OrderType) => {
+    setCurrentOrderType(orderType);
+
+    const uri = formatURI({ ...params, orderType });
+    router.replace(uri);
   };
 
-  const { debounce } = useDebounce((value: string) => {
-    if (value.trim() === "") {
+  const handleOrderBy = (orderBy: UsersOrderBy) => {
+    setCurrentOrderBy(orderBy);
+
+    const uri = formatURI({ ...params, orderBy });
+    router.replace(uri);
+  };
+
+  const { debounce } = useDebounce((query: string) => {
+    if (query.trim() === "") {
       return;
     }
 
-    router.push(
-      `/search-experts?name=${value}` +
-        `&page=${currentPage}&size=${pageSize}&order_type=${orderType}&order_by=${orderBy}`,
-    );
+    const uri = formatURI({ ...params, page: DEFAULT_PAGE, query });
+    router.push(uri);
   }, 500);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
