@@ -3,21 +3,13 @@ import {
   OrderType,
   PageUserSearchOutPage,
   PageUserSearchOutPages,
-  PageUserSearchOutSize,
   Service,
   UsersOrderBy,
 } from "@/orval_api/model";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "./constants";
-
-export type URIParams = {
-  query: string;
-  page?: PageUserSearchOutPage;
-  size?: PageUserSearchOutSize;
-  orderType?: OrderType;
-  orderBy?: UsersOrderBy;
-};
+import { URIParams } from "@/types/general";
 
 export function formatURI({
   query,

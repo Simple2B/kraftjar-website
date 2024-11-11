@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "@/navigation";
 import { useDebounce } from "../../hooks/useDebounce";
 import Image from "next/image";
@@ -23,8 +23,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
-import { formatURI, URIParams } from "@/lib/utils";
+import { formatURI } from "@/lib/utils";
 import { DEFAULT_PAGE } from "@/lib/constants";
+import { URIParams } from "@/types/general";
 
 type Props = {
   experts?: UserSearchOut[];
@@ -48,8 +49,8 @@ export const Experts = ({
   orderBy,
 }: Props) => {
   const router = useRouter();
-  const [currentOrderType, setCurrentOrderType] = useState(orderType);
-  const [currentOrderBy, setCurrentOrderBy] = useState(orderBy);
+  const currentOrderType = useRef(orderType);
+  const currentOrderBy = useRef(orderBy);
 
   const params: URIParams = {
     query,
@@ -60,14 +61,14 @@ export const Experts = ({
   };
 
   const handleOrderType = (orderType: OrderType) => {
-    setCurrentOrderType(orderType);
+    currentOrderType.current = orderType;
 
     const uri = formatURI({ ...params, orderType });
     router.replace(uri);
   };
 
   const handleOrderBy = (orderBy: UsersOrderBy) => {
-    setCurrentOrderBy(orderBy);
+    currentOrderBy.current = orderBy;
 
     const uri = formatURI({ ...params, orderBy });
     router.replace(uri);
@@ -132,7 +133,7 @@ export const Experts = ({
             <DropdownMenuLabel>Сортувати за:</DropdownMenuLabel>
 
             <DropdownMenuRadioGroup
-              value={currentOrderType}
+              value={currentOrderType.current}
               onValueChange={(value) => handleOrderType(value as OrderType)}
             >
               <DropdownMenuRadioItem value={OrderType.desc}>
@@ -148,7 +149,7 @@ export const Experts = ({
 
             <DropdownMenuLabel>Сортувати по:</DropdownMenuLabel>
             <DropdownMenuRadioGroup
-              value={currentOrderBy}
+              value={currentOrderBy.current}
               onValueChange={(value) => handleOrderBy(value as UsersOrderBy)}
             >
               <DropdownMenuRadioItem value={UsersOrderBy.average_rate}>

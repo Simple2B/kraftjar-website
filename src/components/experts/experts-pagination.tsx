@@ -15,7 +15,8 @@ import type {
   PageUserSearchOutSize,
   UsersOrderBy,
 } from "@/orval_api/model";
-import { formatURI, getVisiblePages, URIParams } from "@/lib/utils";
+import { formatURI, getVisiblePages } from "@/lib/utils";
+import { URIParams } from "@/types/general";
 
 const FIRST_PAGE = 1;
 const THREE_DOTS = "...";
