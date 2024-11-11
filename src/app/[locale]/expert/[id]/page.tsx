@@ -19,6 +19,8 @@ export default function SpecialistRedirect({ params }: SpecialistRedirectProps) 
     if (!id) return;
 
     const deepLinkUrl = `${APP_SCHEME}://${SPECIALIST_PATH}/${id}`;
+
+    // TODO: Replace these URLs with the actual app store and play store URLs
     const appStoreUrl = 'https://apps.apple.com/app/your-app-id';
     const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.myapp';
 
