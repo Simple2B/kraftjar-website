@@ -3,6 +3,7 @@ import {
   OrderType,
   PageUserSearchOutPage,
   PageUserSearchOutPages,
+  PageUserSearchOutSize,
   Service,
   UsersOrderBy,
 } from "@/orval_api/model";
@@ -13,7 +14,7 @@ import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "./constants";
 export type URIParams = {
   query: string;
   page?: PageUserSearchOutPage;
-  size?: string;
+  size?: PageUserSearchOutSize;
   orderType?: OrderType;
   orderBy?: UsersOrderBy;
 };

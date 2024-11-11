@@ -93,7 +93,7 @@ export const ExpertsPagination = ({
               {showPageButton && (
                 <PaginationItem>
                   <PaginationLink
-                    href={formatURI({ ...params, page: pageNumber })}
+                    href={formatURI({ ...params, page: Number(pageNumber) })}
                     isActive={isPageActive}
                   >
                     {pageNumber}

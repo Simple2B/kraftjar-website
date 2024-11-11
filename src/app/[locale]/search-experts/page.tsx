@@ -43,7 +43,7 @@ export default async function SearchExpertsPage({
   }
 
   if (!!searchParams && typeof searchParams.size === "string") {
-    pageSize = searchParams.size;
+    pageSize = Number(searchParams.size);
   }
 
   if (!!searchParams && typeof searchParams.order_type === "string") {
