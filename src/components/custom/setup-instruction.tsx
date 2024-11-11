@@ -5,9 +5,10 @@ import { ButtonBundle } from "./button-bundle";
 
 type Props = {
   hideTitle?: boolean;
+  isStepLineLg?: boolean;
 };
 
-export const SetupInstruction = ({ hideTitle }: Props) => {
+export const SetupInstruction = ({ hideTitle, isStepLineLg }: Props) => {
   const t = useTranslations("Home");
 
   const INSTRUCTIONS_STEPS = [
@@ -50,7 +51,8 @@ export const SetupInstruction = ({ hideTitle }: Props) => {
                   className={cn(
                     "relative flex-1",
                     !isLastItem &&
-                      "after:absolute after:left-5 after:h-[50px] after:border-r-2 after:border-dashed after:border-yellowMain desktopEnd:after:h-[108px]",
+                      "after:absolute after:left-5 after:h-12 after:border-r-2 after:border-dashed after:border-yellowMain desktopEnd:after:h-10",
+                    isStepLineLg && "desktopEnd:after:h-16",
                   )}
                 >
                   <div className="flex w-full items-center font-medium">

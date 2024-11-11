@@ -1,6 +1,7 @@
 import { Link } from "@/navigation";
 import { getService } from "@/orval_api/service/service";
-import { backendURL, DEFAUL_PAGE_SIZE } from "@/lib/constants";
+import { backendURL } from "@/lib/constants";
+import { formatURI } from "@/lib/utils";
 
 export const ServicesList = async () => {
   const { aPIGetPopularServices } = getService();
@@ -14,11 +15,7 @@ export const ServicesList = async () => {
         <div key={service.name}>
           <Link
             className="link-style text-lg font-bold"
-            href={
-              "/search-experts/?name=" +
-              service.name +
-              `&page=1&size=${DEFAUL_PAGE_SIZE}`
-            }
+            href={formatURI({ query: service.name })}
           >
             {service.name}
           </Link>

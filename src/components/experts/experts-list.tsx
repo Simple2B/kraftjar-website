@@ -39,7 +39,7 @@ export const ExpertsList = ({ experts }: Props) => {
             <Fragment key={id}>
               <Link
                 href={`/expert/?uuid=${uuid}`}
-                className="flex cursor-pointer select-none items-center justify-between py-8 transition-colors hover:bg-grayLight desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start"
+                className="flex cursor-pointer select-none items-center justify-between p-8 transition-colors hover:bg-grayLight desktopEnd:h-auto desktopEnd:flex-col desktopEnd:items-start desktopEnd:p-3"
               >
                 <div className="flex gap-6 desktopEnd:mb-6">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full shadow-avatarShadow">
@@ -48,7 +48,7 @@ export const ExpertsList = ({ experts }: Props) => {
                       alt="Avatar"
                       width={80}
                       height={80}
-                      className="h-[80px] rounded-full object-cover"
+                      className="h-20 rounded-full object-cover"
                     />
                   </div>
 

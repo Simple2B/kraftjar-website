@@ -19,7 +19,7 @@ export const Footer = () => {
 
   return (
     <footer className="min-h-[496px] bg-blackMain">
-      <div className="p-20 desktopEnd:px-4">
+      <div className="p-20 desktopEnd:px-4 desktopEnd:py-10">
         <div className="flex justify-between desktopEnd:flex-col desktopEnd:items-center desktopEnd:gap-10 desktopEnd:text-center">
           <div>
             <Link
@@ -91,7 +91,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <Separator className="my-[60px] bg-[#FFFFFF33]" />
+        <Separator className="my-14 bg-[#FFFFFF33]" />
 
         <div className="flex items-end justify-between desktopEnd:flex-col desktopEnd:items-center desktopEnd:gap-5 desktopEnd:text-center">
           <div>

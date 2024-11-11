@@ -10,8 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 
 import { Button } from "@/components/custom/button";
-import { cn } from "@/lib/utils";
-import { DEFAUL_PAGE_SIZE } from "@/lib/constants";
+import { cn, formatURI } from "@/lib/utils";
 
 export const SearchBlock = ({ children }: PropsWithChildren) => {
   const router = useRouter();
@@ -27,9 +26,8 @@ export const SearchBlock = ({ children }: PropsWithChildren) => {
   });
 
   const onSubmit = async (data: TypeSearchSchema) => {
-    router.push(
-      "/search-experts/?name=" + data.name + `&page=1&size=${DEFAUL_PAGE_SIZE}`,
-    );
+    const uri = formatURI({ query: data.name });
+    router.push(uri);
   };
 
   return (

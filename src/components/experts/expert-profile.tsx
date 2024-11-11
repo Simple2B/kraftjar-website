@@ -111,7 +111,7 @@ export const ExpertProfile = ({ expert }: Props) => {
           <QRCodeWrapper expertUUID={uuid} />
 
           <Modal>
-            <SetupInstruction hideTitle />
+            <SetupInstruction hideTitle isStepLineLg />
           </Modal>
         </div>
       </div>

@@ -8,7 +8,7 @@ export const AboutApp = () => {
   return (
     <div
       id="about"
-      className="flex w-full items-center justify-between py-28 desktopEnd:py-20 smDesktop:flex-col-reverse"
+      className="flex w-full items-center justify-between py-28 desktopEnd:py-10 smDesktop:flex-col-reverse"
     >
       <div className="ml-20 max-w-[574px] desktopEnd:ml-0 desktopEnd:px-4">
         <h2 className="mb-6">{t("about.title")}</h2>

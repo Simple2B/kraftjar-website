@@ -1,11 +1,25 @@
-import type {
+import {
   LocationStrings,
+  OrderType,
   PageUserSearchOutPage,
   PageUserSearchOutPages,
   Service,
+  UsersOrderBy,
 } from "@/orval_api/model";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "./constants";
+import { URIParams } from "@/types/general";
+
+export function formatURI({
+  query,
+  page = DEFAULT_PAGE,
+  size = DEFAULT_PAGE_SIZE,
+  orderType = OrderType.desc,
+  orderBy = UsersOrderBy.average_rate,
+}: URIParams) {
+  return `/search-experts/?name=${query}&page=${page}&size=${size}&order_type=${orderType}&order_by=${orderBy}`;
+}
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

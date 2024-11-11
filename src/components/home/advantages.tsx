@@ -25,7 +25,7 @@ export const Advantages = () => {
   return (
     <div
       id="advantages"
-      className="flex min-h-[484px] w-full flex-wrap items-center justify-center gap-8 bg-blackMain text-center desktopEnd:bg-white desktopEnd:py-20 smDesktop:px-4 smDesktopPart:py-28"
+      className="flex min-h-[484px] w-full flex-wrap items-center justify-center gap-8 bg-blackMain text-center desktopEnd:bg-white desktopEnd:py-10 smDesktop:px-4 smDesktopPart:py-28"
     >
       {ADVANTAGES.map(({ key, name, icon }) => (
         <div

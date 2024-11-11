@@ -6,8 +6,9 @@ import { Experts } from "@/components/experts/experts";
 import { AboutApp } from "@/components/home/about-app";
 import { Faq } from "@/components/home/faq";
 import { ExpertsList } from "@/components/experts/experts-list";
-import { backendURL, DEFAUL_PAGE_SIZE } from "@/lib/constants";
+import { backendURL, DEFAULT_PAGE_SIZE } from "@/lib/constants";
 import { ExpertsPagination } from "@/components/experts/experts-pagination";
+import { OrderType, UsersOrderBy } from "@/orval_api/model";
 
 export async function generateMetadata({ searchParams }: SearchParamsProps) {
   let query = "";
@@ -29,7 +30,9 @@ export default async function SearchExpertsPage({
 }: SearchParamsProps) {
   let query = "";
   let pageNumber = "1";
-  let pageSize = DEFAUL_PAGE_SIZE;
+  let pageSize = DEFAULT_PAGE_SIZE;
+  let orderType: OrderType = OrderType.desc;
+  let orderBy: UsersOrderBy = UsersOrderBy.average_rate;
 
   if (!!searchParams && typeof searchParams.name === "string") {
     query = searchParams.name;
@@ -40,7 +43,15 @@ export default async function SearchExpertsPage({
   }
 
   if (!!searchParams && typeof searchParams.size === "string") {
-    pageSize = searchParams.size;
+    pageSize = Number(searchParams.size);
+  }
+
+  if (!!searchParams && typeof searchParams.order_type === "string") {
+    orderType = searchParams.order_type as OrderType;
+  }
+
+  if (!!searchParams && typeof searchParams.order_by === "string") {
+    orderBy = searchParams.order_by as UsersOrderBy;
   }
 
   const t = await getTranslations("Home.expertsListPage");
@@ -49,13 +60,25 @@ export default async function SearchExpertsPage({
   const {
     data: { items, total, page, size, pages },
   } = await aPIGetUsers(
-    { query: query, page: Number(pageNumber), size: Number(pageSize) },
+    {
+      query: query,
+      page: Number(pageNumber),
+      size: Number(pageSize),
+      order_type: orderType,
+      order_by: orderBy,
+    },
     backendURL,
   );
 
   return (
     <>
-      <Experts query={query} pageSize={size}>
+      <Experts
+        query={query}
+        pageSize={size}
+        orderType={orderType}
+        orderBy={orderBy}
+        currentPage={page}
+      >
         <h2 className="mb-8">{t("title")}</h2>
         {!!total && <span>Знайдено {total}</span>}
 
@@ -63,12 +86,16 @@ export default async function SearchExpertsPage({
           <>
             <ExpertsList experts={items} />
 
-            <ExpertsPagination
-              currentPage={page}
-              totalPages={pages}
-              pageSize={size}
-              query={query}
-            />
+            {pages > 1 && (
+              <ExpertsPagination
+                currentPage={page}
+                totalPages={pages}
+                pageSize={size}
+                query={query}
+                orderType={orderType}
+                orderBy={orderBy}
+              />
+            )}
           </>
         ) : (
           <div>{t("notFound")}</div>
