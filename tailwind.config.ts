@@ -93,10 +93,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        slide: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        slide: "slide 10s linear infinite",
+        "infinite-scroll": "infinite-scroll 5s linear infinite",
       },
       boxShadow: {
         cardShadow: "0px 0px 5.5px 0px #ABABAB40",

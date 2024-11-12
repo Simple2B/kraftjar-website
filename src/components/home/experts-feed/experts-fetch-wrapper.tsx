@@ -21,12 +21,13 @@ export async function ExpertsFetchWrapper() {
             key={expert.id}
             index={index}
             uuid={expert.uuid}
-            average_rate={expert.average_rate}
+            average_rate={expert.receiver_average_rate}
             fullname={expert.fullname}
             owned_rates_count={expert.owned_rates_count}
             services={expert.services}
             locations={expert.locations}
             createdAt={formatDate(expert.created_at, "uk")}
+            avatar={expert.avatar_url}
           />
         ))}
       </CarouselContent>

@@ -43,14 +43,14 @@ export const ExpertProfile = ({ expert }: Props) => {
     fullname,
     uuid,
     created_at,
+    owned_rates_count,
   } = expert;
 
   const roundRating = Math.round(receiver_average_rate);
 
   const expertLocations =
     locations.map((l) => l.name).join(", ") || t("other.noLocation");
-  const expertServices =
-    services.map((s) => s.name).join(", ") || t("other.noService");
+  const expertServices = services.map((s) => s.name).join(", ");
 
   const joinedDate = formatDate(created_at, t("expertPage.locale"));
 
@@ -69,7 +69,7 @@ export const ExpertProfile = ({ expert }: Props) => {
           <div className="flex flex-col gap-3 desktopEnd:items-center">
             <div className="text-2xl">{fullname}</div>
 
-            <div className="star-rating flex gap-1">
+            <div className="star-rating flex items-center gap-1">
               {STAR_LIST.map((_, index) => {
                 const ratingValue = index + 1;
                 const starColor =
@@ -81,6 +81,10 @@ export const ExpertProfile = ({ expert }: Props) => {
                   </div>
                 );
               })}
+
+              <span className="text-xs">
+                ({owned_rates_count} {t("other.reviews")})
+              </span>
             </div>
 
             <div className="flex gap-4 smDesktop:flex-col">

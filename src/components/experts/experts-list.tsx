@@ -32,8 +32,7 @@ export const ExpertsList = ({ experts }: Props) => {
           const avgRate = receiver_average_rate.toFixed(1);
           const expertLocations =
             locations.map((l) => l.name).join(", ") || t("noLocation");
-          const expertServices =
-            services.map((s) => s.name).join(", ") || t("noService");
+          const expertServices = services.map((s) => s.name).join(", ");
 
           return (
             <Fragment key={id}>

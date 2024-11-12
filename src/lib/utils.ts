@@ -43,10 +43,9 @@ export function formatUsersData(
   locations: LocationStrings[],
   services: Service[],
   defaultL: string,
-  defaultS: string,
 ) {
   const expertLocations = locations.map((l) => l.name).join(", ") || defaultL;
-  const expertServices = services.map((s) => s.name).join(", ") || defaultS;
+  const expertServices = services.map((s) => s.name).join(", ");
 
   return { expertLocations, expertServices };
 }
