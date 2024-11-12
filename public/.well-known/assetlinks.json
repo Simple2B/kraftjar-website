@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "net.kraftjar.app",
+      "sha256_cert_fingerprints": [
+        "AA:5B:BE:30:A9:DB:8C:07:F2:92:EF:9D:F0:43:FA:8E:04:A1:C0:BE:91:73:1E:9B:A1:34:7E:1D:8C:2E:E1:09"
+      ]
+    }
+  }
+]

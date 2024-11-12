@@ -20,9 +20,9 @@ export default function SpecialistRedirect({ params }: SpecialistRedirectProps) 
 
     const deepLinkUrl = `${APP_SCHEME}://${SPECIALIST_PATH}/${id}`;
 
-    // TODO: Replace these URLs with the actual app store and play store URLs
+    // TODO: Replace these URL with the actual app store URL
     const appStoreUrl = 'https://apps.apple.com/app/your-app-id';
-    const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.myapp';
+    const playStoreUrl = 'https://play.google.com/store/apps/details?id=net.kraftjar.app';
 
     // Attempt to open the app using the deep link
     window.location.href = deepLinkUrl;
@@ -39,5 +39,5 @@ export default function SpecialistRedirect({ params }: SpecialistRedirectProps) 
     return () => clearTimeout(timer);
   }, [id]);
 
-  return <p>Redirecting to the app...</p>;
+  return <p className='w-full justify-center items-center text-center text-2xl py-6'>Redirecting to the app...</p>;
 }
