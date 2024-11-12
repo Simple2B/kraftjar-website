@@ -9,6 +9,15 @@ import { Modal } from "../custom/modal";
 import { QRCodeWrapper } from "../custom/qr-code";
 import { DEFAULT_AVATAR } from "./expert-profile";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+const FIRST_ITEMS = 3;
+
 type Props = {
   experts: UserSearchOut[];
 };
@@ -30,9 +39,15 @@ export const ExpertsList = ({ experts }: Props) => {
           avatar_url,
         }) => {
           const avgRate = receiver_average_rate.toFixed(1);
+
+          const firstLocations = locations.slice(0, FIRST_ITEMS);
           const expertLocations =
-            locations.map((l) => l.name).join(", ") || t("noLocation");
-          const expertServices = services.map((s) => s.name).join(", ");
+            firstLocations.map((l) => l.name).join(", ") || t("noLocation");
+          const restLocations = locations.slice(FIRST_ITEMS);
+
+          const firstServices = services.slice(0, FIRST_ITEMS);
+          const expertServices = firstServices.map((s) => s.name).join(", ");
+          const restServices = services.slice(FIRST_ITEMS);
 
           return (
             <Fragment key={id}>
@@ -64,14 +79,54 @@ export const ExpertsList = ({ experts }: Props) => {
                         </span>
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex items-center gap-2">
                         <span className="text-xs">•</span>
                         <span className="text-xs">{expertServices}</span>
+
+                        {!!restServices.length && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="rounded-full bg-[#b0a8a836] p-1 text-xs transition-colors hover:bg-[#59565636]">
+                                  +{restServices.length}
+                                </span>
+                              </TooltipTrigger>
+
+                              <TooltipContent>
+                                {restServices.map((l) => (
+                                  <div key={l.uuid} className="text-xs">
+                                    {l.name}
+                                  </div>
+                                ))}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
                       </div>
 
-                      <div className="flex gap-2">
+                      <div className="flex items-center gap-2">
                         <span className="text-xs">•</span>
                         <span className="text-xs">{expertLocations}</span>
+
+                        {!!restLocations.length && (
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="rounded-full bg-[#b0a8a836] p-1 text-xs transition-colors hover:bg-[#59565636]">
+                                  +{restLocations.length}
+                                </span>
+                              </TooltipTrigger>
+
+                              <TooltipContent>
+                                {restLocations.map((l) => (
+                                  <div key={l.uuid} className="text-xs">
+                                    {l.name}
+                                  </div>
+                                ))}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        )}
                       </div>
                     </div>
                   </div>

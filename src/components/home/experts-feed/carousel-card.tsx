@@ -18,6 +18,7 @@ import { twMerge } from "tailwind-merge";
 import { DEFAULT_AVATAR } from "@/components/experts/expert-profile";
 
 const TEXT_LIMIT = 40;
+const LARGE_TEXT_LIMIT = 116;
 
 type Props = {
   index: number;
@@ -151,6 +152,8 @@ export const CarouselCard = ({
                       "md:justify-start flex items-center justify-center [&_img]:max-w-none [&_li]:mx-2",
                       expertServices.length > TEXT_LIMIT &&
                         "animate-infinite-scroll text-red-600",
+                      expertServices.length > LARGE_TEXT_LIMIT &&
+                        "duration-25000",
                     )}
                   >
                     {services.map((e) => (
@@ -163,6 +166,8 @@ export const CarouselCard = ({
                     <ul
                       className={cn(
                         "md:justify-start flex animate-infinite-scroll items-center justify-center [&_img]:max-w-none [&_li]:mx-2",
+                        expertServices.length > LARGE_TEXT_LIMIT &&
+                          "duration-25000",
                       )}
                       aria-hidden="true"
                     >
@@ -190,6 +195,8 @@ export const CarouselCard = ({
                       "md:justify-start flex items-center justify-center [&_img]:max-w-none [&_li]:mx-2",
                       expertLocations.length > TEXT_LIMIT &&
                         "animate-infinite-scroll",
+                      expertLocations.length > LARGE_TEXT_LIMIT &&
+                        "duration-25000",
                     )}
                   >
                     {locations.length ? (
@@ -208,6 +215,8 @@ export const CarouselCard = ({
                     <ul
                       className={cn(
                         "md:justify-start flex animate-infinite-scroll items-center justify-center [&_img]:max-w-none [&_li]:mx-2",
+                        expertLocations.length > LARGE_TEXT_LIMIT &&
+                          "duration-25000",
                       )}
                       aria-hidden="true"
                     >

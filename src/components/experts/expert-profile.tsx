@@ -56,7 +56,7 @@ export const ExpertProfile = ({ expert }: Props) => {
 
   return (
     <div className="mt-14 px-20 desktopEnd:px-4">
-      <div className="mb-12 flex items-center justify-between rounded-3xl px-10 py-4 shadow-expertInfo desktopEnd:py-10 smDesktop:flex-col">
+      <div className="mb-12 flex items-center justify-between gap-1 rounded-3xl px-10 py-4 shadow-expertInfo desktopEnd:py-10 smDesktop:flex-col">
         <div className="flex items-center gap-6 desktopEnd:mb-10 desktopEnd:flex-col">
           <Image
             src={expert.avatar_url || DEFAULT_AVATAR}
@@ -90,22 +90,22 @@ export const ExpertProfile = ({ expert }: Props) => {
             <div className="flex gap-4 smDesktop:flex-col">
               <div className="flex gap-2">
                 <Image
-                  src="/static/location.svg"
-                  alt="Avatar"
-                  width={16}
-                  height={16}
-                />
-                <span className="text-xs">{expertLocations}</span>
-              </div>
-
-              <div className="flex gap-2">
-                <Image
                   src="/static/briefcase.svg"
                   alt="Avatar"
                   width={16}
                   height={16}
                 />
                 <span className="text-xs"> {expertServices}</span>
+              </div>
+
+              <div className="flex gap-2">
+                <Image
+                  src="/static/location.svg"
+                  alt="Avatar"
+                  width={16}
+                  height={16}
+                />
+                <span className="text-xs">{expertLocations}</span>
               </div>
             </div>
           </div>
