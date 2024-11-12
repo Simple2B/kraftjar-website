@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "EX1721320129761.net.kraftjar.app"
+        ],
+        "paths": [
+          "/specialist/*"
+        ]
+      }
+    ]
+  }
+}
