@@ -8,8 +8,6 @@ import type { PropsWithChildren } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
-
-import { CustomLink } from "@/components/custom/custom-button";
 import { cn, formatURI } from "@/lib/utils";
 
 export const SearchBlock = ({ children }: PropsWithChildren) => {
@@ -57,12 +55,12 @@ export const SearchBlock = ({ children }: PropsWithChildren) => {
               type="text"
             />
 
-            <CustomLink
+            <button
               type="submit"
-              color="primary"
-              title={t("button")}
-              className="absolute right-6 top-1/2 h-10 max-w-[188px] -translate-y-1/2 transform desktopEnd:right-4 desktopEnd:w-[138px] desktopEnd:text-sm"
-            />
+              className="transition-colowercase absolute right-6 top-1/2 flex h-10 w-[224px] max-w-[188px] -translate-y-1/2 transform items-center justify-center gap-[10px] rounded-3xl bg-blueMain px-4 py-2 text-white transition-colors hover:bg-blue-700 desktopEnd:right-4 desktopEnd:w-[138px] desktopEnd:text-sm"
+            >
+              {t("button")}
+            </button>
           </div>
         </form>
       </div>
