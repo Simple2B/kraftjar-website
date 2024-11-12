@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/navigation";
-import { Button } from "@/components/custom/button";
+import { CustomLink } from "@/components/custom/custom-button";
 
 export default function NotFound() {
   const t = useTranslations("Home.notFound");
@@ -18,7 +18,7 @@ export default function NotFound() {
       <p className="mb-8 max-w-[784px] text-center">{t("description")}</p>
 
       <Link href="/" className="desktopEnd:w-full">
-        <Button color="secondary" title={t("button")} />
+        <CustomLink color="secondary" title={t("button")} />
       </Link>
     </div>
   );

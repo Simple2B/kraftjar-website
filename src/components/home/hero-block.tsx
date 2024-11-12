@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { ButtonBundle } from "../custom/button-bundle";
+import { LinkBundle } from "../custom/link-bundle";
 
 export const HeroBlock = () => {
   const t = useTranslations("Home");
@@ -14,9 +14,9 @@ export const HeroBlock = () => {
 
           <p className="mb-12">{t("description")}</p>
 
-          <ButtonBundle
-            appleTitle={t("buttons.apple")}
-            googleTitle={t("buttons.google")}
+          <LinkBundle
+            appleTitle={t("links.apple")}
+            googleTitle={t("links.google")}
           />
         </div>
       </div>

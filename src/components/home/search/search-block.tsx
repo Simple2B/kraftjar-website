@@ -9,7 +9,7 @@ import type { PropsWithChildren } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 
-import { Button } from "@/components/custom/button";
+import { CustomLink } from "@/components/custom/custom-button";
 import { cn, formatURI } from "@/lib/utils";
 
 export const SearchBlock = ({ children }: PropsWithChildren) => {
@@ -57,7 +57,7 @@ export const SearchBlock = ({ children }: PropsWithChildren) => {
               type="text"
             />
 
-            <Button
+            <CustomLink
               type="submit"
               color="primary"
               title={t("button")}

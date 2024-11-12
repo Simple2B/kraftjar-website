@@ -19,6 +19,7 @@ import { DEFAULT_AVATAR } from "@/components/experts/expert-profile";
 
 const TEXT_LIMIT = 40;
 const LARGE_TEXT_LIMIT = 116;
+const NAME_LIMIT = 18;
 
 type Props = {
   index: number;
@@ -109,13 +110,10 @@ export const CarouselCard = ({
               </div>
 
               <div className="flex flex-col items-start">
-                <div
-                  className={cn(
-                    "text-xl text-white",
-                    fullname.length > 18 && "text-base",
-                  )}
-                >
-                  {fullname}
+                <div title={fullname} className="text-xl text-white">
+                  {fullname.length > NAME_LIMIT
+                    ? `${fullname.slice(0, NAME_LIMIT)}...`
+                    : fullname}
                 </div>
 
                 <div className="">

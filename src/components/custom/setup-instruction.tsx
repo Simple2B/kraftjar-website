@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { ButtonBundle } from "./button-bundle";
+import { LinkBundle } from "./link-bundle";
 
 type Props = {
   hideTitle?: boolean;
@@ -51,7 +51,7 @@ export const SetupInstruction = ({ hideTitle, isStepLineLg }: Props) => {
                   className={cn(
                     "relative flex-1",
                     !isLastItem &&
-                      "after:absolute after:left-5 after:h-12 after:border-r-2 after:border-dashed after:border-yellowMain desktopEnd:after:h-10",
+                      "after:absolute after:left-5 after:h-12 after:border-r-2 after:border-dashed after:border-yellowMain desktopEnd:after:h-12",
                     isStepLineLg && "desktopEnd:after:h-16",
                   )}
                 >
@@ -76,9 +76,10 @@ export const SetupInstruction = ({ hideTitle, isStepLineLg }: Props) => {
           })}
         </ol>
 
-        <ButtonBundle
-          appleTitle={t("buttons.apple")}
-          googleTitle={t("buttons.google")}
+        <LinkBundle
+          appleTitle={t("links.apple")}
+          googleTitle={t("links.google")}
+          noTarget
         />
       </div>
     </div>
