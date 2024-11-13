@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/navigation";
+import { Button } from "@/components/custom/button";
 
 export default function NotFound() {
   const t = useTranslations("Home.notFound");
@@ -16,11 +17,8 @@ export default function NotFound() {
 
       <p className="mb-8 max-w-[784px] text-center">{t("description")}</p>
 
-      <Link
-        href="/"
-        className="transition-colowercase flex h-12 w-[224px] items-center justify-center gap-[10px] rounded-3xl bg-yellowMain px-4 py-2 text-white transition-colors hover:bg-[#e0a70d] desktopEnd:w-full"
-      >
-        {t("button")}
+      <Link href="/" className="desktopEnd:w-full">
+        <Button color="secondary" title={t("button")} />
       </Link>
     </div>
   );

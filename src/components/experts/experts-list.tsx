@@ -132,7 +132,7 @@ export const ExpertsList = ({ experts }: Props) => {
                   </div>
                 </div>
 
-                <Modal>
+                <Modal preventEventTrigger>
                   <div className="flex flex-col items-center text-center">
                     <QRCodeWrapper expertUUID={uuid} />
                   </div>

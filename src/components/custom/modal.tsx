@@ -14,6 +14,7 @@ type Props = {
   buttonTitle?: string;
   children: React.ReactNode;
   className?: string;
+  preventEventTrigger?: boolean;
 };
 
 export const Modal = ({
@@ -21,6 +22,7 @@ export const Modal = ({
   buttonTitle,
   children,
   className,
+  preventEventTrigger,
 }: Props) => {
   const t = useTranslations("Home.modal");
   const title = buttonTitle || t("title");
@@ -33,7 +35,7 @@ export const Modal = ({
 
   return (
     <div
-      onClick={handleClick}
+      onClick={preventEventTrigger ? handleClick : undefined}
       className={cn(
         "transition-color flex h-10 w-[214px] items-center justify-center gap-[10px] rounded-3xl bg-yellowMain text-white transition-colors hover:bg-[#e0a70d] desktopEnd:w-full",
         className,

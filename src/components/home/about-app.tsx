@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { LinkBundle } from "../custom/link-bundle";
+import { ButtonBundle } from "../custom/buttons-bundle";
 
 export const AboutApp = () => {
   const t = useTranslations("Home");
@@ -15,7 +15,7 @@ export const AboutApp = () => {
 
         <p className="mb-8">{t("about.description")}</p>
 
-        <LinkBundle
+        <ButtonBundle
           appleTitle={t("links.apple")}
           googleTitle={t("links.google")}
         />

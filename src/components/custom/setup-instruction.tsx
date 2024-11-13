@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { LinkBundle } from "./link-bundle";
+import { ButtonBundle } from "./buttons-bundle";
 
 type Props = {
   hideTitle?: boolean;
@@ -76,10 +76,9 @@ export const SetupInstruction = ({ hideTitle, isStepLineLg }: Props) => {
           })}
         </ol>
 
-        <LinkBundle
+        <ButtonBundle
           appleTitle={t("links.apple")}
           googleTitle={t("links.google")}
-          noTarget
         />
       </div>
     </div>

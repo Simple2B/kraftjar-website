@@ -9,6 +9,7 @@ import type { PropsWithChildren } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SearchSchema, TypeSearchSchema } from "@/types/zod-scheme";
 import { cn, formatURI } from "@/lib/utils";
+import { Button } from "@/components/custom/button";
 
 export const SearchBlock = ({ children }: PropsWithChildren) => {
   const router = useRouter();
@@ -55,12 +56,12 @@ export const SearchBlock = ({ children }: PropsWithChildren) => {
               type="text"
             />
 
-            <button
+            <Button
               type="submit"
-              className="transition-colowercase absolute right-6 top-1/2 flex h-10 w-[224px] max-w-[188px] -translate-y-1/2 transform items-center justify-center gap-[10px] rounded-3xl bg-blueMain px-4 py-2 text-white transition-colors hover:bg-blue-700 desktopEnd:right-4 desktopEnd:w-[138px] desktopEnd:text-sm"
-            >
-              {t("button")}
-            </button>
+              color="primary"
+              title={t("button")}
+              className="absolute right-6 top-1/2 h-10 max-w-[188px] -translate-y-1/2 transform desktopEnd:right-4 desktopEnd:w-[138px] desktopEnd:text-sm"
+            />
           </div>
         </form>
       </div>
