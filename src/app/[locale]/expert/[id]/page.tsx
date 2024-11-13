@@ -34,7 +34,7 @@ export default function SpecialistRedirect({ params }: SpecialistRedirectProps) 
       } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         window.location.href = appStoreUrl;
       }
-    }, 500);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [id]);
