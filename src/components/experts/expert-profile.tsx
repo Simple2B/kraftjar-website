@@ -3,20 +3,18 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import { formatDate } from "@/lib/utils";
-import { StarIcon } from "@/lib/icons";
 import type { UserProfileOut } from "@/orval_api/model";
 import { QRCodeWrapper } from "../custom/qr-code";
 
 import { Modal } from "../custom/modal";
 import { SetupInstruction } from "../custom/setup-instruction";
 import { Separator } from "../ui/separator";
+import { Stars } from "../custom/stars";
 
 type Props = {
   expert: UserProfileOut;
 };
 
-const TOTAL_STARS = 5;
-const STAR_LIST = [...Array(TOTAL_STARS)];
 export const DEFAULT_AVATAR = "/static/default-avatar.png";
 
 const EXPERIENCE = [
@@ -48,8 +46,6 @@ export const ExpertProfile = ({ expert }: Props) => {
     owned_rates_count,
   } = expert;
 
-  const roundRating = Math.round(receiver_average_rate);
-
   const expertLocations =
     locations.map((l) => l.name).join(", ") || t("other.noLocation");
   const expertServices = services.map((s) => s.name).join(", ");
@@ -68,21 +64,11 @@ export const ExpertProfile = ({ expert }: Props) => {
             className="h-[160px] rounded-full"
           />
 
-          <div className="flex flex-col gap-3 desktopEnd:items-center">
+          <div className="flex flex-col gap-2 desktopEnd:items-center">
             <div className="text-2xl">{fullname}</div>
 
-            <div className="star-rating flex items-center gap-1">
-              {STAR_LIST.map((_, index) => {
-                const ratingValue = index + 1;
-                const starColor =
-                  ratingValue <= roundRating ? "#FFBB02" : "#15151533";
-
-                return (
-                  <div key={ratingValue} className="">
-                    <StarIcon fill={starColor} />
-                  </div>
-                );
-              })}
+            <div className="flex items-center gap-1">
+              <Stars rate={receiver_average_rate} />
 
               <span className="text-xs">
                 ({owned_rates_count} {t("other.reviews")})
@@ -178,21 +164,7 @@ export const ExpertProfile = ({ expert }: Props) => {
                   <div>
                     <p>{rate.review}</p>
 
-                    <div className="star-rating my-2 flex items-center gap-1">
-                      {STAR_LIST.map((_, index) => {
-                        const ratingValue = index + 1;
-                        const starColor =
-                          ratingValue <= Math.round(rate.rate)
-                            ? "#FFBB02"
-                            : "#15151533";
-
-                        return (
-                          <div key={ratingValue} className="">
-                            <StarIcon fill={starColor} />
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <Stars rate={rate.rate} />
 
                     <div>
                       {formatDate(rate.created_at, t("expertPage.locale"))}
@@ -207,7 +179,7 @@ export const ExpertProfile = ({ expert }: Props) => {
       </div>
 
       <p className="text-base">
-        Щоб переглянути більше робіт скористайтеся нашим {/*  */}
+        Щоб переглянути більше робіт скористайтесь нашим {/*  */}
         <Link
           className="text-blueMain underline"
           href={`/expert?uuid=${expert.uuid}#about`}
