@@ -12,10 +12,15 @@ const JOBS_LIMIT = 3;
 
 type Props = {
   showcases: UserRecentShowcase[];
-  expert_uuid: string;
+  expertUUID: string;
+  reviewsCount: number;
 };
 
-export const RecentShowcases = ({ showcases, expert_uuid }: Props) => {
+export const RecentShowcases = ({
+  showcases,
+  expertUUID,
+  reviewsCount,
+}: Props) => {
   const t = useTranslations("Home");
 
   return (
@@ -69,12 +74,12 @@ export const RecentShowcases = ({ showcases, expert_uuid }: Props) => {
         ))}
       </div>
 
-      {showcases.length === JOBS_LIMIT && (
+      {reviewsCount > JOBS_LIMIT && (
         <p className="text-base">
           Щоб переглянути більше робіт скористайтесь нашим {/*  */}
           <Link
             className="text-blueMain underline"
-            href={`/expert?uuid=${expert_uuid}#about`}
+            href={`/expert?uuid=${expertUUID}#about`}
           >
             додатком
           </Link>

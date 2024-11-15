@@ -121,7 +121,8 @@ export const ExpertProfile = ({ expert }: Props) => {
       {!!expert.recent_showcases?.length && (
         <RecentShowcases
           showcases={expert.recent_showcases}
-          expert_uuid={expert.uuid}
+          expertUUID={expert.uuid}
+          reviewsCount={owned_rates_count}
         />
       )}
     </div>

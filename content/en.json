@@ -115,7 +115,8 @@
       "button": "Go to home"
     },
     "qrCode": {
-      "subTitle": "Scan the QR to offer a job to en expert"
+      "subTitle": "Scan the QR to offer a job to en expert",
+      "mobileSubTitle": "Tap on the QR code to offer a job to en expert"
     },
     "modal": {
       "title": "Offer a job to an expert",
