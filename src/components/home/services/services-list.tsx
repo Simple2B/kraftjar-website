@@ -1,13 +1,16 @@
 import { Link } from "@/navigation";
 import { getService } from "@/orval_api/service/service";
 import { backendURL } from "@/lib/constants";
-import { formatURI } from "@/lib/utils";
+import { formatURI, getLanguage } from "@/lib/utils";
+import { getLocale } from "next-intl/server";
 
 export const ServicesList = async () => {
+  const locale = await getLocale();
   const { aPIGetPopularServices } = getService();
+
   const {
     data: { services },
-  } = await aPIGetPopularServices(backendURL);
+  } = await aPIGetPopularServices({ lang: getLanguage(locale) }, backendURL);
 
   return (
     <div className="mb-3 grid grid-cols-[repeat(auto-fill,minmax(max-content,294px))] grid-rows-4 place-content-center place-items-center gap-y-6">

@@ -65,7 +65,7 @@ export const CarouselCard = ({
     <CarouselItem className={"relative h-[204px] basis-[298px]"}>
       <button
         onClick={handleCopy}
-        title="Copy link"
+        title={t("other.copyLink")}
         className={
           "absolute right-[-8px] top-[-6px] flex h-10 w-10 items-center justify-center rounded-full border border-[#FFFFFF33] bg-blackMain transition-colors hover:bg-[#FFFFFF33]"
         }
@@ -238,7 +238,10 @@ export const CarouselCard = ({
               </>
             )}
 
-            <Modal className="w-full bg-white text-blackMain hover:bg-gray-200">
+            <Modal
+              preventEventTrigger
+              className="w-full bg-white text-blackMain hover:bg-gray-200"
+            >
               <div className="flex flex-col items-center text-center">
                 <QRCodeWrapper expertUUID={uuid} />
               </div>

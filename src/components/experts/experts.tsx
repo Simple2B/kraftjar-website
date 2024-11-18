@@ -26,6 +26,7 @@ import { Button } from "../ui/button";
 import { formatURI } from "@/lib/utils";
 import { DEFAULT_PAGE } from "@/lib/constants";
 import { URIParams } from "@/types/general";
+import { useTranslations } from "next-intl";
 
 type Props = {
   experts?: UserSearchOut[];
@@ -51,6 +52,7 @@ export const Experts = ({
   const router = useRouter();
   const currentOrderType = useRef(orderType);
   const currentOrderBy = useRef(orderBy);
+  const t = useTranslations("Home");
 
   const params: URIParams = {
     query,
@@ -130,34 +132,34 @@ export const Experts = ({
           </DropdownMenuTrigger>
 
           <DropdownMenuContent className="w-56">
-            <DropdownMenuLabel>Сортувати за:</DropdownMenuLabel>
+            <DropdownMenuLabel>{t("ordering.orderType")}:</DropdownMenuLabel>
 
             <DropdownMenuRadioGroup
               value={currentOrderType.current}
               onValueChange={(value) => handleOrderType(value as OrderType)}
             >
               <DropdownMenuRadioItem value={OrderType.desc}>
-                спаданням
+                {t("ordering.desc")}
               </DropdownMenuRadioItem>
 
               <DropdownMenuRadioItem value={OrderType.asc}>
-                зростанням
+                {t("ordering.asc")}
               </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
 
             <DropdownMenuSeparator />
 
-            <DropdownMenuLabel>Сортувати по:</DropdownMenuLabel>
+            <DropdownMenuLabel>{t("ordering.orderBy")}:</DropdownMenuLabel>
             <DropdownMenuRadioGroup
               value={currentOrderBy.current}
               onValueChange={(value) => handleOrderBy(value as UsersOrderBy)}
             >
               <DropdownMenuRadioItem value={UsersOrderBy.average_rate}>
-                рейтингу
+                {t("ordering.rating")}
               </DropdownMenuRadioItem>
 
               <DropdownMenuRadioItem value={UsersOrderBy.owned_rates_count}>
-                кількості відгуків
+                {t("ordering.reviews")}
               </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>

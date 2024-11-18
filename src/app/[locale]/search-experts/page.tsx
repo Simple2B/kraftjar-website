@@ -1,5 +1,5 @@
 import { getUsers } from "@/orval_api/users/users";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { SearchParamsProps } from "@/types/general";
 
 import { Experts } from "@/components/experts/experts";
@@ -9,6 +9,7 @@ import { ExpertsList } from "@/components/experts/experts-list";
 import { backendURL, DEFAULT_PAGE_SIZE } from "@/lib/constants";
 import { ExpertsPagination } from "@/components/experts/experts-pagination";
 import { OrderType, UsersOrderBy } from "@/orval_api/model";
+import { getLanguage } from "@/lib/utils";
 
 export async function generateMetadata({ searchParams }: SearchParamsProps) {
   let query = "";
@@ -28,6 +29,8 @@ export async function generateMetadata({ searchParams }: SearchParamsProps) {
 export default async function SearchExpertsPage({
   searchParams,
 }: SearchParamsProps) {
+  const locale = await getLocale();
+
   let query = "";
   let pageNumber = "1";
   let pageSize = DEFAULT_PAGE_SIZE;
@@ -61,6 +64,7 @@ export default async function SearchExpertsPage({
     data: { items, total, page, size, pages },
   } = await aPIGetUsers(
     {
+      lang: getLanguage(locale),
       query: query,
       page: Number(pageNumber),
       size: Number(pageSize),
@@ -80,7 +84,11 @@ export default async function SearchExpertsPage({
         currentPage={page}
       >
         <h2 className="mb-8">{t("title")}</h2>
-        {!!total && <span>Знайдено {total}</span>}
+        {!!total && (
+          <span>
+            {t("resultCount")} {total}
+          </span>
+        )}
 
         {!!total && !!pages ? (
           <>

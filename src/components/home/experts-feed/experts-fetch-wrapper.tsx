@@ -3,15 +3,21 @@ import { getUsers } from "@/orval_api/users/users";
 import { ExpertsCarousel } from "./experts-carousel";
 import { CarouselContent } from "@/components/ui/carousel";
 import { CarouselCard } from "./carousel-card";
+import { getLocale } from "next-intl/server";
+import { getLanguage } from "@/lib/utils";
 
 export async function ExpertsFetchWrapper() {
   const { aPIGetUsers } = getUsers();
+  const locale = await getLocale();
 
   const allUsersQuery = "";
 
   const {
     data: { items },
-  } = await aPIGetUsers({ query: allUsersQuery }, backendURL);
+  } = await aPIGetUsers(
+    { query: allUsersQuery, lang: getLanguage(locale) },
+    backendURL,
+  );
 
   return (
     <ExpertsCarousel>
@@ -26,7 +32,7 @@ export async function ExpertsFetchWrapper() {
             owned_rates_count={expert.owned_rates_count}
             services={expert.services}
             locations={expert.locations}
-            createdAt={formatDate(expert.created_at, "uk")}
+            createdAt={formatDate(expert.created_at, locale)}
             avatar={expert.avatar_url}
           />
         ))}

@@ -1,4 +1,5 @@
 import {
+  Language,
   LocationStrings,
   OrderType,
   PageUserSearchOutPage,
@@ -95,4 +96,8 @@ export function getVisiblePages(
   }
 
   return pages;
+}
+
+export function getLanguage(locale: string) {
+  return locale === "uk" ? Language.ua : Language.en;
 }

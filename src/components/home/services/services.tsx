@@ -14,10 +14,9 @@ export const Services = () => {
       <ServicesList />
 
       <p className="text-base">
-        Більше послуг ви зможете знайти за <b className="underline">пошуком</b>{" "}
-        вище або використавши наш{" "}
+        {t("categories.subText")}{" "}
         <Link className="text-blueMain underline" href="/#how-to-start">
-          Додаток
+          {t("categories.app")}
         </Link>
       </p>
     </div>
