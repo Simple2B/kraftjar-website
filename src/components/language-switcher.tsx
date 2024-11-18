@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "@/navigation";
 import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { en, uk } from "@/config";
 
 type Option = {
   code: string;
@@ -11,8 +12,8 @@ type Option = {
 };
 
 const OPTIONS: Option[] = [
-  { code: "uk", label: "Укр" },
-  { code: "en", label: "Eng" },
+  { code: uk, label: "Укр" },
+  { code: en, label: "Eng" },
 ];
 
 export const LanguageSwitcher = () => {

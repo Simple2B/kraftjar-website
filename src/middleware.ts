@@ -1,10 +1,11 @@
 import createMiddleware from "next-intl/middleware";
 import { localePrefix, locales } from "./navigation";
+import { uk } from "./config";
 
 export default createMiddleware({
   locales,
   localePrefix,
-  defaultLocale: "uk",
+  defaultLocale: uk,
 });
 
 // only applies this middleware to files in the app directory

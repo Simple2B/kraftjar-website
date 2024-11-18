@@ -14,7 +14,6 @@ import { cn, formatUsersData } from "@/lib/utils";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Modal } from "@/components/custom/modal";
 import { QRCodeWrapper } from "@/components/custom/qr-code";
-import { twMerge } from "tailwind-merge";
 import { DEFAULT_AVATAR } from "@/components/experts/expert-profile";
 
 const TEXT_LIMIT = 40;
@@ -71,14 +70,14 @@ export const CarouselCard = ({
         }
       >
         <Image
-          className={twMerge(!isCopied && "hidden")}
+          className={cn(!isCopied && "hidden")}
           src="/static/check.svg"
           alt="Copied"
           width={40}
           height={40}
         />
         <Image
-          className={twMerge(isCopied && "hidden")}
+          className={cn(isCopied && "hidden")}
           src="/static/share.svg"
           alt="Share"
           width={20}
