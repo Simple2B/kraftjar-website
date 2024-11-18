@@ -15,8 +15,9 @@ import type {
   PageUserSearchOutSize,
   UsersOrderBy,
 } from "@/orval_api/model";
-import { formatURI, getVisiblePages } from "@/lib/utils";
+import { cn, formatURI, getVisiblePages } from "@/lib/utils";
 import { URIParams } from "@/types/general";
+import { useTranslations } from "next-intl";
 
 const FIRST_PAGE = 1;
 const THREE_DOTS = "...";
@@ -38,6 +39,8 @@ export const ExpertsPagination = ({
   orderType,
   orderBy,
 }: Props) => {
+  const t = useTranslations("Home");
+
   const params: URIParams = {
     query,
     page: currentPage,
@@ -60,7 +63,11 @@ export const ExpertsPagination = ({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href={prevPageLink} />
+          <PaginationPrevious
+            className={cn(currentPage === FIRST_PAGE && "pointer-events-none")}
+            name={t("other.paginationPrev")}
+            href={prevPageLink}
+          />
         </PaginationItem>
 
         {pageButtonsList.map((pageNumber, i) => {
@@ -123,7 +130,11 @@ export const ExpertsPagination = ({
         })}
 
         <PaginationItem>
-          <PaginationNext href={nextPageLink} />
+          <PaginationNext
+            className={cn(currentPage === totalPages && "pointer-events-none")}
+            name={t("other.paginationNext")}
+            href={nextPageLink}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

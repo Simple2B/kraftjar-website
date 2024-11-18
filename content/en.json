@@ -24,7 +24,9 @@
     },
     "categories": {
       "title": "What can I find?",
-      "description": "Thanks to the fast search algorithm, Kraftjar helps you find specialists in the shortest possible time"
+      "description": "Thanks to the fast search algorithm, Kraftjar helps you find specialists in the shortest possible time",
+      "subText": "You can find more services using our",
+      "app": "app"
     },
     "advantages": {
       "fast": {
@@ -85,7 +87,8 @@
     },
     "expertsListPage": {
       "title": "Top Experts in this category",
-      "notFound": "Unfortunately, there are no experts in this category"
+      "notFound": "Unfortunately, there are no experts in this category",
+      "resultCount": "Found"
     },
     "expertPage": {
       "info": "About the expert",
@@ -93,7 +96,12 @@
       "phone": "Phone",
       "joined": "Joined",
       "locale": "en-GB",
-      "experience": "Experience | Education"
+      "experience": "Experience | Education",
+      "lastJobs": "Recent works",
+      "owner": "owner",
+      "completed": "Completed",
+      "subText": "To view more works, use our",
+      "app": "app"
     },
     "footer": {
       "label": "Kraftjar",
@@ -122,9 +130,20 @@
       "title": "Offer a job to an expert",
       "button": "Offer a job"
     },
+    "ordering": {
+      "orderType": "Order type",
+      "desc": "descending",
+      "asc": "ascending",
+      "orderBy": "Order by",
+      "rating": "rating",
+      "reviews": "reviews"
+    },
     "other": {
       "noLocation": "All Ukraine",
-      "reviews": "reviews"
+      "reviews": "reviews",
+      "paginationPrev": "Previous",
+      "paginationNext": "Next",
+      "copyLink": "Copy link"
     }
   },
   "PrivacyPolicy": {

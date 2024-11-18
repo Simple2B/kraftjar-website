@@ -1,8 +1,10 @@
 import { ExpertProfile } from "@/components/experts/expert-profile";
 import { AboutApp } from "@/components/home/about-app";
 import { backendURL } from "@/lib/constants";
+import { getLanguage } from "@/lib/utils";
 import { getUsers } from "@/orval_api/users/users";
 import type { SearchParamsProps } from "@/types/general";
+import { getLocale } from "next-intl/server";
 
 export async function generateMetadata({ searchParams }: SearchParamsProps) {
   let query = "";
@@ -29,12 +31,18 @@ export default async function SearchExpertsPage({
 }: SearchParamsProps) {
   let query = "";
 
+  const locale = await getLocale();
+
   if (!!searchParams && typeof searchParams.uuid === "string") {
     query = searchParams.uuid;
   }
 
   const { aPIGetUserProfile } = getUsers();
-  const { data } = await aPIGetUserProfile(query, {}, backendURL);
+  const { data } = await aPIGetUserProfile(
+    query,
+    { lang: getLanguage(locale) },
+    backendURL,
+  );
 
   return (
     <>

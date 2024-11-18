@@ -1,3 +1,4 @@
+import { uk } from "@/config";
 import { PageUserSearchOutSize } from "@/orval_api/model";
 
 /**It is important that this is present in every API.
@@ -33,11 +34,12 @@ export function formatDate(dateString: string, lang: string): string {
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
 
-  const uk = lang === "uk";
+  const isUK = lang === uk;
 
-  if (seconds < 60) return `${seconds} ${uk ? "секунд тому" : "seconds ago"} `;
-  if (minutes < 60) return `${minutes} ${uk ? "хвилин тому" : "minutes ago"}`;
-  if (hours < 24) return `${hours} ${uk ? "годин тому" : "hours ago"}`;
+  if (seconds < 60)
+    return `${seconds} ${isUK ? "секунд тому" : "seconds ago"} `;
+  if (minutes < 60) return `${minutes} ${isUK ? "хвилин тому" : "minutes ago"}`;
+  if (hours < 24) return `${hours} ${isUK ? "годин тому" : "hours ago"}`;
 
-  return `${days} ${uk ? "днів тому" : "days ago"}`;
+  return `${days} ${isUK ? "днів тому" : "days ago"}`;
 }

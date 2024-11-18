@@ -1,4 +1,5 @@
 import {
+  Language,
   LocationStrings,
   OrderType,
   PageUserSearchOutPage,
@@ -10,6 +11,7 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from "./constants";
 import { URIParams } from "@/types/general";
+import { uk } from "@/config";
 
 export function formatURI({
   query,
@@ -95,4 +97,8 @@ export function getVisiblePages(
   }
 
   return pages;
+}
+
+export function getLanguage(locale: string) {
+  return locale === uk ? Language.ua : Language.en;
 }

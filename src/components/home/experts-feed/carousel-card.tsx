@@ -14,7 +14,6 @@ import { cn, formatUsersData } from "@/lib/utils";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Modal } from "@/components/custom/modal";
 import { QRCodeWrapper } from "@/components/custom/qr-code";
-import { twMerge } from "tailwind-merge";
 import { DEFAULT_AVATAR } from "@/components/experts/expert-profile";
 
 const TEXT_LIMIT = 40;
@@ -65,20 +64,20 @@ export const CarouselCard = ({
     <CarouselItem className={"relative h-[204px] basis-[298px]"}>
       <button
         onClick={handleCopy}
-        title="Copy link"
+        title={t("other.copyLink")}
         className={
           "absolute right-[-8px] top-[-6px] flex h-10 w-10 items-center justify-center rounded-full border border-[#FFFFFF33] bg-blackMain transition-colors hover:bg-[#FFFFFF33]"
         }
       >
         <Image
-          className={twMerge(!isCopied && "hidden")}
+          className={cn(!isCopied && "hidden")}
           src="/static/check.svg"
           alt="Copied"
           width={40}
           height={40}
         />
         <Image
-          className={twMerge(isCopied && "hidden")}
+          className={cn(isCopied && "hidden")}
           src="/static/share.svg"
           alt="Share"
           width={20}
@@ -238,7 +237,10 @@ export const CarouselCard = ({
               </>
             )}
 
-            <Modal className="w-full bg-white text-blackMain hover:bg-gray-200">
+            <Modal
+              preventEventTrigger
+              className="w-full bg-white text-blackMain hover:bg-gray-200"
+            >
               <div className="flex flex-col items-center text-center">
                 <QRCodeWrapper expertUUID={uuid} />
               </div>

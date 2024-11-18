@@ -25,7 +25,7 @@ export const RecentShowcases = ({
 
   return (
     <>
-      <div className="mb-4 text-2xl font-bold">Останні роботи</div>
+      <div className="mb-4 text-2xl font-bold">{t("expertPage.lastJobs")}</div>
 
       <div>
         {showcases.map((showcase) => (
@@ -52,7 +52,9 @@ export const RecentShowcases = ({
                         {rate.gives.fullname}
                       </div>
 
-                      <span className="text-xs text-grayDark">(замовник)</span>
+                      <span className="text-xs text-grayDark">
+                        ({t("expertPage.owner")})
+                      </span>
                     </div>
                   </div>
 
@@ -62,7 +64,7 @@ export const RecentShowcases = ({
                     <Stars rate={rate.rate} />
 
                     <div>
-                      Виконано:{" "}
+                      {t("expertPage.completed")}:{" "}
                       {formatDate(rate.created_at, t("expertPage.locale"))}
                     </div>
                   </div>
@@ -76,12 +78,12 @@ export const RecentShowcases = ({
 
       {reviewsCount > JOBS_LIMIT && (
         <p className="text-base">
-          Щоб переглянути більше робіт скористайтесь нашим {/*  */}
+          {t("expertPage.subText")} {/*  */}
           <Link
             className="text-blueMain underline"
             href={`/expert?uuid=${expertUUID}#about`}
           >
-            додатком
+            {t("expertPage.app")}
           </Link>
         </p>
       )}
