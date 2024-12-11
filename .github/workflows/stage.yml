@@ -92,5 +92,5 @@ jobs:
           script: |
             cd ~/kraftjar_web/kraftjar-website &&
             mv docker-compose.stage.yaml docker-compose.yml &&
-            dcpull &&
-            dcupd
+            docker-compose pull &&
+            docker-compose up -d
